@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @link https://www.humhub.org/
+ * @copyright Copyright (c) 2017 HumHub GmbH & Co. KG
+ * @license https://www.humhub.com/licences
+ */
+
+namespace humhub\modules\admin\controllers;
+
+use humhub\modules\admin\models\forms\SpaceSettingsForm;
+use humhub\modules\admin\models\SpaceSearch;
+use humhub\modules\content\models\Content;
+use humhub\modules\space\models\Space;
+use humhub\modules\space\permissions\CreatePublicSpace;
+use Yii;
+use humhub\modules\admin\components\Controller;
+use humhub\modules\admin\permissions\ManageSpaces;
+use humhub\modules\admin\permissions\ManageSettings;
+use yii\web\HttpException;
+
+/**
+ * SpaceController provides global space administration.
+ *
+ * @since 0.5
+ */
+class SpaceController extends Controller
+{
+
+    /**
+     * @inheritdoc
+     */
+    public $adminOnly = false;
+
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        $this->subLayout = '@admin/views/layouts/space';
+        $this->appendPageTitle(Yii::t('AdminModule.base', 'Spaces'));
+
+        return parent::init();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAccessRules()
+    {
+        return [
+            ['permissions' => [
+                ManageSpaces::className(),
+                ManageSettings::className()
+            ]],
+        ];
+    }
+
+    /**
+     * Shows all available spaces
+     */
+    public function actionIndex()
+    {
+        if (Yii::$app->user->can(new ManageSpaces())) {
+            $searchModel = new SpaceSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+            return $this->render('index', [
+                'dataProvider' => $dataProvider,
+                'searchModel' => $searchModel
+            ]);
+        } else if (Yii::$app->user->can(new ManageSettings())) {
+            return $this->redirect([
+                'settings'
+            ]);
+        }
+
+        throw new HttpException(403);
+    }
+
+    /**
+     * General Space Settings
+     */
+    public function actionSettings()
+    {
+        $form = new SpaceSettingsForm;
+
+        if ($form->load(Yii::$app->request->post()) && $form->validate() && $form->save()) {
+            $this->view->saved();
+        }
+
+        $visibilityOptions = [];
+
+        if (Yii::$app->getModule('user')->settings->get('auth.allowGuestAccess')) {
+            $visibilityOptions[Space::VISIBILITY_ALL] = Yii::t('SpaceModule.base', 'Public (Members & Guests)');
+        }
+
+        $visibilityOptions[Space::VISIBILITY_REGISTERED_ONLY] = Yii::t('SpaceModule.base', 'Public (Members only)');
+        $visibilityOptions[Space::VISIBILITY_NONE] = Yii::t('SpaceModule.base', 'Private (Invisible)');
+
+        $joinPolicyOptions = [
+            Space::JOIN_POLICY_NONE => Yii::t('SpaceModule.base', 'Only by invite'),
+            Space::JOIN_POLICY_APPLICATION => Yii::t('SpaceModule.base', 'Invite and request'),
+            Space::JOIN_POLICY_FREE => Yii::t('SpaceModule.base', 'Everyone can enter')
+        ];
+
+        $contentVisibilityOptions = [
+            Content::VISIBILITY_PRIVATE => Yii::t('SpaceModule.base', 'Private'),
+            Content::VISIBILITY_PUBLIC => Yii::t('SpaceModule.base', 'Public')];
+
+        return $this->render('settings', [
+                'model' => $form,
+                'joinPolicyOptions' => $joinPolicyOptions,
+                'visibilityOptions' => $visibilityOptions,
+                'contentVisibilityOptions' => $contentVisibilityOptions
+            ]
+        );
+    }
+
+}

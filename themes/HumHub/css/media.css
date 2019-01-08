@@ -1,0 +1,76 @@
+@media (max-width: 768px){
+	#sec1{
+		text-align: center;
+	}
+	.main-nav{
+		float: none;
+	}
+	.logo{
+		margin: auto;
+	    margin-top: 60px;
+	    margin-bottom: 60px;
+	}
+	.sec2-item{
+		margin-bottom: 74px;
+	}
+	.sec2-item:nth-child(3){
+		margin-bottom: 0px;
+	}
+	.etaps-holdr{
+		width: 100%;
+	}
+	.etaps-holdr_title{
+		margin-left: 0px;
+    	text-align: center;
+	} 
+	.etaps-holdr_button{
+		margin-left: 0px;
+    	text-align: center;
+	}
+	#sec2{
+		padding-bottom: 0px;
+	}
+	.sec3-title{
+		margin-top: 18%;
+	}
+	.yellow-border{
+		margin: auto;
+	}
+	#sec4{
+		padding-top: 60px;
+	}
+	.sec4-item_wrap{
+		margin-bottom: 20px;
+	}
+	.step1{
+		margin-left: 60px;
+	}
+	.step1-desc{
+		margin-left: 195px;
+	}
+	.step2{
+		margin-left: 350px;
+	}
+	.step2-desc{
+		left: 409px;
+	}
+	.step3{
+		margin-left: 130px;
+	}
+	.step3-desc{
+		    margin-left: 0px;
+    text-align: center;
+	}
+	.sec2-item_logo{
+		margin-left: auto;
+	    margin-right: auto;
+	    right: 0;
+	    left: 0;
+	}
+
+
+	.header-nav a{
+		padding-right: 30px;
+	}	
+}	
+

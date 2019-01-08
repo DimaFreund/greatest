@@ -1,0 +1,10 @@
+{
+  "id": "favorite",
+  "name": "Favorite",
+  "description": "This widget add favorite functionality.",
+  "version": "1.0.0",
+  "humhub": {
+    "minVersion": "0.20"
+  },
+  "screenshots": ["assets/screen1.png"]
+}

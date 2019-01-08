@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desire_activity" transform="translate(-56.000000, -4.000000)" fill="#B3B3B3" fill-rule="nonzero">
+            <g id="activity">
+                <g id="Group-25">
+                    <g id="Group-3">
+                        <g id="Group-41" transform="translate(56.000000, 4.000000)">
+                            <g id="stars">
+                                <path d="M6.2837321,0.197655882 L7.81011756,3.98606028 L11.7178615,4.33809445 C11.9888904,4.36263995 12.0991498,4.71725786 11.8934143,4.90393286 L8.92934371,7.59683276 L9.81757932,11.602917 C9.8791768,11.8813147 9.59151658,12.1002864 9.35867812,11.9523674 L6.00038371,9.82853561 L2.64208929,11.9523674 C2.40863485,12.0996404 2.12159061,11.8806687 2.18318809,11.602917 L3.0714237,7.59683276 L0.10673716,4.90328692 C-0.0989984113,4.71661192 0.0106450968,4.36199402 0.282289968,4.33744852 L4.19003387,3.98541435 L5.71641934,0.197655882 C5.822367,-0.0658852939 6.17778444,-0.0658852939 6.2837321,0.197655882 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

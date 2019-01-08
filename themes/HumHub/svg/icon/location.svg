@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="12px" viewBox="0 0 9 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="info" transform="translate(-69.000000, -78.000000)" fill="#FFB74D" fill-rule="nonzero">
+            <g id="Group-3-Copy">
+                <g transform="translate(0.000000, 50.000000)">
+                    <g id="Group-15" transform="translate(69.000000, 26.000000)">
+                        <path d="M7.17441374,3.2309659 C6.38065222,2.43720438 5.32522551,2 4.20273889,2 C3.08003312,2 2.02482556,2.43720438 1.23106403,3.2309659 C-0.237898838,4.69970963 -0.42045084,7.46319192 0.835717321,9.1374984 L4.20273889,14 L7.56472001,9.14429205 C8.82592862,7.46319192 8.64337662,4.69970963 7.17441374,3.2309659 Z M4.24152845,7.69790164 C3.39582836,7.69790164 2.70747801,7.00955129 2.70747801,6.1638512 C2.70747801,5.3181511 3.39582836,4.62980076 4.24152845,4.62980076 C5.08722854,4.62980076 5.77557889,5.3181511 5.77557889,6.1638512 C5.77557889,7.00955129 5.08722854,7.69790164 4.24152845,7.69790164 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>checkbox</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="styles" transform="translate(-1025.000000, -3662.000000)">
+            <g id="sidebar_hovers" transform="translate(1001.000000, 1216.000000)">
+                <g id="hovers" transform="translate(0.000000, 6.000000)">
+                    <g id="vote_post_hover" transform="translate(0.000000, 2354.000000)">
+                        <g id="Group-27" transform="translate(24.000000, 38.000000)">
+                            <g id="checkbox_checked" transform="translate(0.000000, 48.000000)">
+                                <g id="checkbox">
+                                    <rect id="Rectangle-2-Copy" fill="#1CC2B4" x="0" y="0" width="14" height="14" rx="3"></rect>
+                                    <path d="M11.0238413,4.13485714 C10.8651587,3.97615873 10.6078889,3.97615873 10.4491746,4.13485714 L5.58085714,9.00322222 L3.70955556,7.13192063 C3.55087302,6.97322222 3.29360317,6.9732381 3.13488889,7.13192063 C2.97619048,7.29060317 2.97619048,7.54787302 3.13488889,7.70657143 L5.29352381,9.8651746 C5.45215873,10.0238571 5.70961905,10.023746 5.86819048,9.8651746 L11.0238413,4.70952381 C11.1825397,4.55084127 11.1825238,4.29355556 11.0238413,4.13485714 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

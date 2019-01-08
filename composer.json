@@ -1,0 +1,9 @@
+{
+    "require": {
+        "xutl/yii2-bootstrap-tagsinput-asset": "^1.0",
+        "life2016/yii2-tagsinput": "^1.1",
+        "pudinglabs/yii2-bootstrap-tags-input": "*",
+        "mervick/emojionearea": "^3.0.0",
+        "emojione/emojione": "^4.0"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "require": {
+	"wbraganca/yii2-tagsinput":"1.0.2",
+        "2amigos/yii2-date-picker-widget" : "2.0.0"
+    }
+}

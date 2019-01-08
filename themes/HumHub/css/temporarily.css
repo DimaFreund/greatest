@@ -1,0 +1,6 @@
+.contacts .contacts-form label {
+    display: block;
+}
+.contacts .contacts-form input {
+    height: auto;
+}

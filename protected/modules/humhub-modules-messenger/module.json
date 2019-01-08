@@ -1,0 +1,11 @@
+{
+    "id": "messenger",
+    "name": "Messenger",
+    "description": "Приватный чат для общения пользователей и пространств.",
+    "keywords": ["chat", "messaging", "communication", "messenger"],
+    "version": "0.1.0",
+    "humhub": {
+        "minVersion": "1.0"
+    },
+    "screenshots": ["assets/scrin-1.jpg"]
+}

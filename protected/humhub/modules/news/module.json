@@ -1,0 +1,9 @@
+{
+    "id": "news",
+    "name": "News",
+    "description": "News custom",
+    "keywords": [
+        "custom"
+    ],
+    "version": "0.1"
+}

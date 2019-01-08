@@ -1,0 +1,10 @@
+{
+  "id": "rating",
+  "name": "Rating Widget",
+  "description": "This widget add rating for desire.",
+  "version": "1.0.0",
+  "humhub": {
+    "minVersion": "0.20"
+  },
+  "screenshots": ["assets/screen1.png"]
+}

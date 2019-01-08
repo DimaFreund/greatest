@@ -1,0 +1,21 @@
+{
+  "name": "xutl/yii2-bootstrap-tagsinput-asset",
+  "description": "The tag extension for the yii framework",
+  "keywords": [
+    "bootstrap",
+    "taggable",
+    "tags",
+    "tag",
+    "tagsinput"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "require": {
+    "yiisoft/yii2": "~2.0.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "xutl\\bootstrap\\tagsinput\\": ""
+    }
+  }
+}
