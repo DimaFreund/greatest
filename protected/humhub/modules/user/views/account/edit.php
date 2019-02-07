@@ -60,7 +60,16 @@ use yii\helpers\Url;
 						<div class="birthday">
 							<div class="personal-info-label">Birthday*</div>
 							<div class="wrap"><label><svg class="icon icon-calendar"><use xlink:href="./svg/sprite/sprite.svg#calendar"></use></svg>
-									<?= \humhub\widgets\DatePicker::widget(['model' => $user->profile, 'attribute' => 'birthday', 'options' => ['id' => 'datepicker']]); ?>
+									<?= \humhub\widgets\DatePicker::widget([
+									        'model' => $user->profile,
+                                            'attribute' => 'birthday',
+                                            'options' => ['id' => 'datepicker'],
+                                            'clientOptions' => [
+                                                    'changeYear' => true,
+                                                    'yearRange' => (date('Y') - 100) . ":" . (date('Y')),
+                                                    'changeMonth' => true,
+                                            ]
+                                    ]); ?>
                                 </label>
                             </div>
 						</div>

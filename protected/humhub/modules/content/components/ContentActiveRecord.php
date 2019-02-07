@@ -389,11 +389,13 @@ class ContentActiveRecord extends ActiveRecord implements ContentOwner
     public static function find()
     {
 	    $query = new ActiveQueryContent(get_called_class());
-	    if(Yii::$app->request->get('sort')) {
-		    $query = static::sortByParameters($query, Yii::$app->request->get('sort'));
-	    } else {
-	        $query->orderBy('id DESC');
-        }
+	    if(!(Yii::$app instanceof Yii\console\Application)) {
+		    if ( Yii::$app->request->get( 'sort' ) ) {
+			    $query = static::sortByParameters( $query, Yii::$app->request->get( 'sort' ) );
+		    } else {
+			    $query->orderBy( 'id DESC' );
+		    }
+	    }
 	    return $query;
     }
 

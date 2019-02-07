@@ -3,6 +3,8 @@
 namespace humhub\modules\polls\widgets;
 
 use humhub\components\Widget;
+use humhub\modules\content\models\Category;
+use Yii;
 
 /**
  * PollWallEntryWidget is used to display a poll inside the stream.
@@ -19,9 +21,14 @@ class PollsItem extends Widget
 
 	public function run()
 	{
+
+		$category = new Category();
+		$category = $category->getAllCurrentLanguage(Yii::$app->language, 'poll');
+
 		return $this->render('polsItem', [
 			'poll' => $this->poll,
-			'contentContainer' => $this->poll->content->container
+			'contentContainer' => $this->poll->content->container,
+			'category' => $category,
 			]);
 	}
 

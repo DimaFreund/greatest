@@ -26,7 +26,7 @@ class AccountRecoverPassword extends \yii\base\Model
             array('email', 'required'),
             array('email', 'email'),
             array('email', 'canRecoverPassword'),
-            array('verifyCode', 'captcha', 'captchaAction' => '/user/auth/captcha'),
+	        array(['verifyCode'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6Lcs6ocUAAAAAELD0dVC1Kw5vFmufLK2I4xxDC5t'),
             array('email', 'exist', 'targetClass' => User::className(), 'targetAttribute' => 'email', 'message' => Yii::t('UserModule.forms_AccountRecoverPasswordForm', '{attribute} "{value}" was not found!')),
         );
     }

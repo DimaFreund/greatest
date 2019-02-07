@@ -17,7 +17,7 @@ use yii\helpers\Url;
 			<div class="sub-menu-header">
 				<div class="title">Friend Requests</div>
 				<div class="counter"><span ><?php echo $receivedRequestsCount; ?></span></div>
-				<div class="moreLink"><a class="findUserLink" href="#">Find friends</a></div>
+                <div class="moreLink"><a class="findUserLink" href="<?= Url::toRoute(['/search', 'SearchForm[keyword]' => ' ', 'scope[user]' => 'on']); ?>">Find friends</a></div>
 			</div>
 
 			<div class="sub-menu-content">

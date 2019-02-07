@@ -17,6 +17,7 @@ echo \humhub\modules\stream\widgets\StreamViewer::widget(array(
     'messageStreamEmptyCss' => ($user->permissionManager->can(new \humhub\modules\post\permissions\CreatePost())) ?
             'placeholder-empty-stream' :
             '',
+    'showFilters' => false,
 ));
 ?>
 </div>

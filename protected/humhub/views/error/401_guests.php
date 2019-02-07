@@ -9,6 +9,7 @@ use yii\helpers\Url;
         <section class="front-top">
             <div class="wrap">
 <div class="container">
+    <div class="wraper-error-page">
     <div class="panel panel-danger">
         <div class="panel-heading">
             <?= Yii::t('error', "<strong>Login</strong> required"); ?>
@@ -26,6 +27,7 @@ use yii\helpers\Url;
                 <?= Yii::t('base', 'Back'); ?>
             </button>
         </div>
+    </div>
     </div>
 </div>
             </div>

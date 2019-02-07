@@ -20,7 +20,7 @@ class ReplyMessage extends Model
     public function rules()
     {
         return [
-            ['message', 'required'],
+            ['message', 'safe'],
         ];
     }
 

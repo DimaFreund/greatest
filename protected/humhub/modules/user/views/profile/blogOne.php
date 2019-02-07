@@ -32,6 +32,7 @@ use yii\helpers\Url;
 			<?= \humhub\modules\content\widgets\BottomPanelContent::widget(['object' => $model]); ?>
         </div>
 		<?= Comments::widget(['object' => $model]); ?>
+        <?php if($model->content->canEdit()) { ?>
 		<div class="sub-context-menu">
 			<div class="context-menu-btn"><span></span><span></span><span></span></div>
 			<ul class="context-menu">
@@ -39,5 +40,6 @@ use yii\helpers\Url;
                 <li><a href="<?= Url::toRoute(['/blog/blog/delete', 'id'=>$model->id],  ['data-pjax' => 0]); ?>">Remove</a></li>
 			</ul>
 		</div>
+        <?php } ?>
 	</div>
 </div>

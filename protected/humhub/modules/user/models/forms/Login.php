@@ -35,6 +35,8 @@ class Login extends Model
      */
     public $authClient = null;
 
+	public $verifyCode;
+
     /**
      * @inheritdoc
      */
@@ -43,6 +45,7 @@ class Login extends Model
         return [
             [['username', 'password'], 'required'],
             ['rememberMe', 'boolean'],
+	        [['verifyCode'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6Lcs6ocUAAAAAELD0dVC1Kw5vFmufLK2I4xxDC5t', 'message' => 'Captcha value is incorrect'],
         ];
     }
 

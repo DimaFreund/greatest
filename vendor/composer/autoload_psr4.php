@@ -6,12 +6,18 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'yii\\httpclient\\' => array($vendorDir . '/yiisoft/yii2-httpclient/src'),
     'yii\\composer\\' => array($vendorDir . '/yiisoft/yii2-composer'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap/src'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'xutl\\bootstrap\\tagsinput\\' => array($vendorDir . '/xutl/yii2-bootstrap-tagsinput-asset'),
     'wbraganca\\tagsinput\\' => array($vendorDir . '/life2016/yii2-tagsinput/src'),
     'pudinglabs\\tagsinput\\' => array($vendorDir . '/pudinglabs/yii2-bootstrap-tags-input'),
+    'himiklab\\yii2\\recaptcha\\tests\\' => array($vendorDir . '/himiklab/yii2-recaptcha-widget/tests'),
+    'himiklab\\yii2\\recaptcha\\' => array($vendorDir . '/himiklab/yii2-recaptcha-widget/src'),
+    'e96\\sentry\\' => array($vendorDir . '/e96/yii2-sentry/src'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Emojione\\' => array($vendorDir . '/emojione/emojione/lib/php/src'),
 );

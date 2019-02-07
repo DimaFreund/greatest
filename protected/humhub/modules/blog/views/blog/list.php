@@ -15,7 +15,7 @@ use humhub\modules\comment\widgets\Comments;
                 <div class="title"><?= $title; ?></div>
                 <div class="stat"><?= $count; ?> <?= $title; ?> Posts</div>
                 <div class="filters">
-                    <div class="page-filter category-filter show-on-tablet"><select><option>Activities (1)</option><option>Success Stories (34434)</option><option>Culture (34)</option><option>Food&Drink (643)</option><option>Fashion&Style (45)</option><option>Business&Money (46)</option></select></div>
+                    <?= \humhub\modules\content\widgets\CategorySelectFilter::widget(['model' => Yii::$app->controller->module->id]); ?>
                    <?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $articles]); ?>
                 </div>
             </div>

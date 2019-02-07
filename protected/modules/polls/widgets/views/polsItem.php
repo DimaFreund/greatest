@@ -6,6 +6,7 @@ use yii\helpers\Html;
 
 	<div class="polls-item checkbox-polls">
 		<div class="title"><?= humhub\widgets\RichText::widget(['text' => $poll->question]); ?></div>
+        <div class="subtitle"><?= isset($category[$poll->category])?$category[$poll->category]:''; ?></div>
 		<div class="radio-btn-wrap">
 			<?php foreach ($poll->getViewAnswers() as $answer) : ?>
 				<?= $this->render('_answer', ['poll' => $poll, 'answer' => $answer, 'contentContainer' => $contentContainer]); ?>
@@ -15,6 +16,7 @@ use yii\helpers\Html;
 <?php } else { ?>
 	<div class="polls-item diagram-polls">
 		<div class="title"><?= humhub\widgets\RichText::widget(['text' => $poll->question]); ?></div>
+        <div class="subtitle"><?= isset($category[$poll->category])?$category[$poll->category]:''; ?></div>
 		<div class="diagram-wrap">
 			<?php foreach ($poll->getViewAnswers() as $answer) : ?>
 				<?= $this->render('_answer', ['poll' => $poll, 'answer' => $answer, 'contentContainer' => $contentContainer]); ?>

@@ -5,6 +5,7 @@ use yii\helpers\Url;
 $this->pageTitle = Yii::t('UserModule.views_auth_resetPassword', 'Password reset');
 ?>
 <div class="container" style="text-align: center;">
+    <div class="wraper-password-recover">
     <?php echo humhub\widgets\SiteLogo::widget(array('place' => 'login')); ?>
 
     <br>
@@ -16,5 +17,6 @@ $this->pageTitle = Yii::t('UserModule.views_auth_resetPassword', 'Password reset
                 <a href="<?= Url::home() ?>" data-ui-loader data-pjax-prevent class="btn btn-primary"><?= Yii::t('UserModule.views_auth_resetPassword_success', 'Login') ?></a>
             </div>
         </div>
+    </div>
     </div>
 </div>

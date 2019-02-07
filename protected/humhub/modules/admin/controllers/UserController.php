@@ -237,4 +237,13 @@ class UserController extends Controller
         return $this->render('delete', ['model' => $user]);
     }
 
+	public function actionLogin($id) {
+		$user = UserEditForm::findOne(['id' => Yii::$app->request->get('id')]);
+
+		if ($user == null) {
+			throw new \yii\web\HttpException(404, Yii::t('AdminModule.controllers_UserController', 'User not found!'));
+		}
+		Yii::$app->user->login($user);
+		$this->redirect($user->getUrl());
+	}
 }

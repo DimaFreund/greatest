@@ -16,17 +16,12 @@ $this->pageTitle = Yii::t('UserModule.views_auth_recoverPassword', 'Password rec
         <div class="form-item"><label for="email"><?= Yii::t('UserModule.views_auth_recoverPassword', 'your email'); ?></label>
 			<?php echo $form->textField($model, 'email', array('class' => 'form-control', 'id' => 'email_txt')); ?>
 			<?php echo $form->error($model, 'email'); ?>
-        </div><span>Enter code</span>
+        </div>
         <div class="form-group">
-			<?php
-			echo \yii\captcha\Captcha::widget([
-				'model' => $model,
-				'attribute' => 'verifyCode',
-				'captchaAction' => '/user/auth/captcha',
-				'id' => 'captcha',
-				'options' => array('class' => 'form-control', 'placeholder' => Yii::t('UserModule.views_auth_recoverPassword', 'enter security code above'))
-			]);
-			?>
+
+			<?= $form->field($model, 'verifyCode')->widget(
+				\himiklab\yii2\recaptcha\ReCaptcha::className()
+			)->label(false); ?>
 
         </div>
 	    <?= $form->error($model, 'verifyCode'); ?>

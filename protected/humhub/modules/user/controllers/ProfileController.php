@@ -246,9 +246,12 @@ class ProfileController extends ContentContainerController
 
 	    $this->contentContainer = User::findOne(['id' => $model->created_by]);
 
+	    $isGreatest = $id == $this->contentContainer->greatest_desire;
+
 	    return $this->render( 'desireOne', [
 		    'model' => $model,
 		    'user' => $this->contentContainer,
+		    'isGreatest' => $isGreatest,
 	    ] );
 
     }
@@ -307,8 +310,8 @@ class ProfileController extends ContentContainerController
     {
 
 	    $photo = Media::findOne($id);
-	    $nextPhoto = Media::find()->where(['>', 'id', $photo->id])->andWhere(['gallery_id' => $photo->gallery_id])->one();
-	    $prevPhoto = Media::find()->where(['<', 'id', $photo->id])->andWhere(['gallery_id' => $photo->gallery_id])->one();
+	    $nextPhoto = Media::find()->where(['<', 'id', $photo->id])->andWhere(['gallery_id' => $photo->gallery_id])->one();
+	    $prevPhoto = Media::find()->where(['>', 'id', $photo->id])->andWhere(['gallery_id' => $photo->gallery_id])->one();
 		$album = CustomGallery::findOne([$photo->gallery_id]);
 
 	    $nextPhotoUrl =(!empty($nextPhoto))?$this->contentContainer->createUrl('/user/profile/photo-one', ['id' => $nextPhoto->id]):'';
@@ -325,10 +328,12 @@ class ProfileController extends ContentContainerController
 
     	return $this->render('photoOne', [
 			'photo' => $photo,
+		    'photoId' => $photo->id,
 		    'album' => $album,
 		    'photoUrl' => $photoPreview->getUrl(),
 		    'urlNext' => $nextPhotoUrl,
 		    'urlPrev' => $prevPhotoUrl,
+		    'uiGalleryId' => "GalleryModule-Gallery-" . $album->id,
 	    ]);
     }
 

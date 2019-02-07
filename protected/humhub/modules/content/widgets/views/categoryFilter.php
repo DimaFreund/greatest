@@ -31,8 +31,6 @@ use yii\helpers\Url;
                         'onchange' => 'return form.submit()',
                     ]
             ])->label(false); ?>
-<!--            <input onchange="return form.submit();" type="checkbox" name="filter" value="--><?//= $key; ?><!--" id="category-filter-id---><?//= $key; ?><!--">-->
-<!--            <label for="category-filter-id---><?//= $key; ?><!--">--><?//= $item; ?><!--</label>-->
 
     <?php ActiveForm::end(); ?>
 </div>

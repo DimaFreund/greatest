@@ -107,9 +107,11 @@ class SearchController extends GeneralController
         if (empty($options['model'])) {
             $model->scope = [SearchForm::SCOPE_ALL];
         }
-
-        $searchResultSet = Yii::$app->search->find($model->keyword, $options);
-
+		if($model->keyword == ' ' && array_key_exists(SearchForm::SCOPE_USER, $model->scope)) {
+			$searchResultSet = Yii::$app->search->find('user', $options);
+		} else {
+			$searchResultSet = Yii::$app->search->find( $model->keyword, $options );
+		}
         // store static for use in widgets (e.g. fileList)
         self::$keyword = $model->keyword;
 
@@ -121,7 +123,7 @@ class SearchController extends GeneralController
                     'model' => $model,
                     'results' => $searchResultSet->getResultInstances(),
                     'pagination' => $pagination,
-                    'totals' => $model->getTotals($model->keyword, $options),
+//                    'totals' => $model->getTotals($model->keyword, $options),
                     'limitSpaces' => $limitSpaces
         ));
     }

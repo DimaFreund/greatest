@@ -13,6 +13,7 @@ class ComposerStaticInit6e58c5bbd8bb86136f00bb8778921747
     public static $prefixLengthsPsr4 = array (
         'y' => 
         array (
+            'yii\\httpclient\\' => 15,
             'yii\\composer\\' => 13,
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
@@ -29,9 +30,26 @@ class ComposerStaticInit6e58c5bbd8bb86136f00bb8778921747
         array (
             'pudinglabs\\tagsinput\\' => 21,
         ),
+        'h' => 
+        array (
+            'himiklab\\yii2\\recaptcha\\tests\\' => 30,
+            'himiklab\\yii2\\recaptcha\\' => 24,
+        ),
+        'e' => 
+        array (
+            'e96\\sentry\\' => 11,
+        ),
         'c' => 
         array (
             'cebe\\markdown\\' => 14,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
         ),
         'E' => 
         array (
@@ -40,6 +58,10 @@ class ComposerStaticInit6e58c5bbd8bb86136f00bb8778921747
     );
 
     public static $prefixDirsPsr4 = array (
+        'yii\\httpclient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-httpclient/src',
+        ),
         'yii\\composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-composer',
@@ -64,9 +86,29 @@ class ComposerStaticInit6e58c5bbd8bb86136f00bb8778921747
         array (
             0 => __DIR__ . '/..' . '/pudinglabs/yii2-bootstrap-tags-input',
         ),
+        'himiklab\\yii2\\recaptcha\\tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/himiklab/yii2-recaptcha-widget/tests',
+        ),
+        'himiklab\\yii2\\recaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/himiklab/yii2-recaptcha-widget/src',
+        ),
+        'e96\\sentry\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/e96/yii2-sentry/src',
+        ),
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Emojione\\' => 
         array (
@@ -75,6 +117,13 @@ class ComposerStaticInit6e58c5bbd8bb86136f00bb8778921747
     );
 
     public static $prefixesPsr0 = array (
+        'R' => 
+        array (
+            'Raven_' => 
+            array (
+                0 => __DIR__ . '/..' . '/sentry/sentry/lib',
+            ),
+        ),
         'H' => 
         array (
             'HTMLPurifier' => 

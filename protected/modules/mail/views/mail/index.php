@@ -32,7 +32,7 @@ use yii\helpers\Url;
 			        'attribute' => 'recipient',
 			        'userGuid' => Yii::$app->user->guid,
 			        'userSearchUrl' => Url::toRoute(['/mail/mail/search-user', 'keyword' => '-keywordPlaceholder-']),
-			        'placeholderText' => Yii::t('MailModule.views_mail_create', 'Find recipients'),
+			        'placeholderText' => Yii::t('MailModule.views_mail_create', 'Find user'),
 			        'focus' => true,
 		        ));
 		        ?>

@@ -144,7 +144,7 @@ class Media extends ContentActiveRecord {
 
 		$cacheId = "photo_last_". $user->id. "_". $pageSize;
 
-		$cacheValue = Yii::$app->cache->get($cacheId);
+		$cacheValue = null; //todo set cache and delete action
 
 		if(!$cacheValue) {
 

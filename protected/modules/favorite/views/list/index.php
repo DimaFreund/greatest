@@ -6,17 +6,22 @@
  * Time: 10:41
  */
 
+use humhub\modules\blog\models\Blog;
 use humhub\modules\comment\widgets\Comments;
+use humhub\modules\desire\models\Desire;
 use humhub\modules\file\converter\PreviewImage;
+use humhub\modules\gallery\models\CustomGallery;
+use humhub\modules\gallery\models\Media;
 use humhub\modules\user\models\User;
 
 ?>
 
 <div class="page-content">
     <div class="content-wrap">
+        <div class="favorite-page">
         <h2>Favorites</h2>
-        <div class="wraper-group-content">
-            <h3>Photos (<?= $counts[\humhub\modules\gallery\models\Media::className()]; ?>)</h3>
+        <div class="wraper-group-content content-media">
+            <h3>Photos (<?= (isset($counts[Media::className()])?$counts[Media::className()]:0); ?>)</h3>
 	        <?php foreach($photos as $photo) { ?>
 
 		        <?php
@@ -36,11 +41,11 @@ use humhub\modules\user\models\User;
 
 	        <?php } ?>
             <div class="link-all-elements">
-                <a href="<?= $user->createUrl('/user/profile/favorite-photos'); ?>">View all</a>
+                <a href="<?= Yii::$app->user->getIdentity()->createUrl('/user/profile/favorite-photos'); ?>">View all</a>
             </div>
         </div>
-        <div class="wraper-group-content">
-            <h3>Albums (<?= $counts[\humhub\modules\gallery\models\CustomGallery::className()]; ?>)</h3>
+        <div class="wraper-group-content content-album">
+            <h3>Albums (<?= (isset($counts[CustomGallery::className()])?$counts[CustomGallery::className()]:0); ?>)</h3>
             <div class="albums-layout" id="list-albums">
 	        <?php foreach($albums as $album) { ?>
                 <div class="album public-album">
@@ -71,11 +76,11 @@ use humhub\modules\user\models\User;
             </div>
 
             <div class="link-all-elements">
-                <a href="<?= $user->createUrl('/user/profile/favorite-photo-albums'); ?>">View all</a>
+                <a href="<?= Yii::$app->user->getIdentity()->createUrl('/user/profile/favorite-photo-albums'); ?>">View all</a>
             </div>
         </div>
-        <div class="wraper-group-content">
-            <h3>Blog posts (<?= $counts[\humhub\modules\blog\models\Blog::className()]; ?>)</h3>
+        <div class="wraper-group-content content-blog">
+            <h3>Blog posts (<?= (isset($counts[Blog::className()])?$counts[Blog::className()]:0); ?>)</h3>
 
             <?php foreach($blogs as $article) { ?>
 	        <?php $user = User::findOne($article->created_by); ?>
@@ -110,11 +115,11 @@ use humhub\modules\user\models\User;
             <?php } ?>
 
             <div class="link-all-elements">
-                <a href="<?= $user->createUrl('/user/profile/favorite-blog'); ?>">View all</a>
+                <a href="<?= Yii::$app->user->getIdentity()->createUrl('/user/profile/favorite-blog'); ?>">View all</a>
             </div>
         </div>
-        <div class="wraper-group-content">
-            <h3>Desires (<?= $counts[\humhub\modules\desire\models\Desire::className()]; ?>)</h3>
+        <div class="wraper-group-content content-desire">
+            <h3>Desires (<?= isset($counts[Desire::className()])?$counts[Desire::className()]:0; ?>)</h3>
             <div class="all-desires desire-small-layout">
 	        <?php foreach($desires as $article) { ?>
                 <div class="desire"><a class="desire-img" href="<?= $article->user->createUrl('/user/profile/desire-one', ['id' => $article->id]); ?>"><?= \humhub\modules\file\widgets\ShowPhotoPreview::widget(['object' => $article, 'options' => ['width' => 240, 'height' => 240, 'index' => 0]]); ?></a>
@@ -160,8 +165,9 @@ use humhub\modules\user\models\User;
 	        <?php } ?>
             </div>
             <div class="link-all-elements">
-                <a href="<?= $user->createUrl('/user/profile/favorite-desires'); ?>">View all</a>
+                <a href="<?= Yii::$app->user->getIdentity()->createUrl('/user/profile/favorite-desires'); ?>">View all</a>
             </div>
+        </div>
         </div>
     </div>
 </div>

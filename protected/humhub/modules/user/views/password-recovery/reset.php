@@ -7,6 +7,7 @@ use humhub\compat\CActiveForm;
 $this->pageTitle = Yii::t('UserModule.views_auth_resetPassword', 'Password reset');
 ?>
 <div class="container" style="text-align: center;">
+    <div class="wraper-password-recover">
     <?= humhub\widgets\SiteLogo::widget(['place' => 'login']); ?>
     <br>
 
@@ -29,6 +30,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_resetPassword', 'Password reset
                 <?php CActiveForm::end(); ?>
             </div>
         </div>
+    </div>
     </div>
 </div>
 

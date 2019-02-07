@@ -29,14 +29,14 @@ use humhub\modules\file\widgets\ShowPhotoPreview;
 				<?= \humhub\modules\content\widgets\BottomPanelContent::widget( [ 'object' => $model ] ); ?>
             </div>
 			<?= Comments::widget( [ 'object' => $model ] ); ?>
-            <div class="sub-context-menu">
-                <div class="context-menu-btn"><span></span><span></span><span></span></div>
-                <ul class="context-menu">
-                    <li><a href="#">Edit</a></li>
-                    <li><a href="#">Edit 2</a></li>
-                    <li><a href="#">Edit 3</a></li>
-                </ul>
-            </div>
+<!--            <div class="sub-context-menu">-->
+<!--                <div class="context-menu-btn"><span></span><span></span><span></span></div>-->
+<!--                <ul class="context-menu">-->
+<!--                    <li><a href="#">Edit</a></li>-->
+<!--                    <li><a href="#">Edit 2</a></li>-->
+<!--                    <li><a href="#">Edit 3</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
         </div>
     </div>
 </div>

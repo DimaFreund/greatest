@@ -19,6 +19,9 @@ use yii\helpers\Url;
             <div class="photos-page-header">
                 <div class="title">Photos</div>
                 <div class="subtitle">Public Photos</div>
+                <div class="filters">
+	                <?= \humhub\modules\content\widgets\CategorySelectFilter::widget(['model' => Yii::$app->controller->module->id]); ?>
+                </div>
 <!--	            --><?//= \humhub\modules\content\widgets\PageSortFilter::widget(); ?>
             </div>
             <div class="albums-img-layout" id="list-object">

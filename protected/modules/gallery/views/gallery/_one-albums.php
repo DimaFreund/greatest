@@ -11,13 +11,18 @@ use humhub\modules\user\models\User;
 ?>
 <?php foreach($albums as $album) { ?>
 	<div class="album public-album">
+		<?php $user = User::findOne($album->content->created_by); ?>
 		<?php $metaData = $album->getMetaData(); ?>
-		<div class="img-block"><img src="<?= $metaData['thumbnailUrl']; ?>">
+        <a href="<?= $user->createUrl('/user/profile/photos', ['id' => $album->id]); ?>">
+		<div class="img-block">
+
+            <img src="<?= $metaData['thumbnailUrl']; ?>">
+
 			<div class="category"><?= isset($category[$album->category])?$category[$album->category]:''; ?></div>
 		</div>
+        </a>
 		<div class="desc">
 			<div class="author-block">
-				<?php $user = User::findOne($album->content->created_by); ?>
 				<div class="photo">
 					<a href="<?= $user->createUrl('/user/profile/home'); ?>">
 						<img src="<?= $user->getProfileImage()->getUrl(); ?>">

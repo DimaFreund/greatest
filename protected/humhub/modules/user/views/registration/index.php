@@ -23,7 +23,7 @@ $this->pageTitle = Yii::t( 'UserModule.views_auth_createAccount', 'Create Accoun
                             My Greatest Desire is…
                         </label>
 
-	                    <?= $form->field($desire, 'Tags')->widget(TagsinputWidget::classname(), [
+	                    <?= $form->field($desire, 'tags')->widget(\humhub\modules\tags\widgets\Tagsinput::classname(), [
 		                    'clientOptions' => [
 			                    'trimValue' => true,
 			                    'allowDuplicates' => false,
@@ -58,6 +58,9 @@ $this->pageTitle = Yii::t( 'UserModule.views_auth_createAccount', 'Create Accoun
                 </div>
             </div>
             <div class="submited-block">
+	            <?= $form->field($desire, 'verifyCode')->widget(
+		            \himiklab\yii2\recaptcha\ReCaptcha::className()
+	            )->label(false); ?>
                 <div class="base-wrap">
                     <div class="title">By clicking on Sign up, you agree to our <?= \yii\helpers\Html::a('Terms and Conditions', ['info/conditions'], ['data-pjax'=>0]) ?> and <?= \yii\helpers\Html::a('Privacy policy', ['info/policy'], ['data-pjax'=>0]) ?></div>
                     <div class="base-btn reverse">

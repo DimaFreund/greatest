@@ -13,7 +13,10 @@
 			<div class="groups-page-header">
 				<div class="title">Groups</div>
 				<div class="stat"><?= $count; ?> Groups</div>
+                <div class="filters">
+				<?= \humhub\modules\content\widgets\CategorySelectFilter::widget(['model' => Yii::$app->controller->module->id]); ?>
 				<?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $spaces]); ?>
+                </div>
             </div>
 			<ul class="groups-list" id="list-object">
                 <?= $this->render('_list', [

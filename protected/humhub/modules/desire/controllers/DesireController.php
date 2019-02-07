@@ -91,12 +91,14 @@ class DesireController extends Controller {
 
 		$model = $this->findModel( $id );
 
-		$model->content->visibility = 1;
-		$model->content->container = $this->contentContainer;
-
 		if ( ! $model->content->canEdit() ) {
 			$this->forbidden();
 		}
+
+		$model->content->visibility = 1;
+		$model->content->container = $this->contentContainer;
+
+
 
 
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() && $model->save() ) {

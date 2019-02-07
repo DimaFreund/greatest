@@ -44,13 +44,14 @@ use yii\helpers\Url;
                     </div>
                 </div>
             </div>
+	        <?php if($greatestDesire->content->canEdit()) { ?>
             <div class="sub-context-menu">
                 <div class="context-menu-btn"><span></span><span></span><span></span></div>
                 <ul class="context-menu">
                     <li><a href="<?= Url::toRoute(['/desire/desire/update', 'id'=>$greatestDesire->id]); ?>">Edit</a></li>
-                    <li><a href="<?= Url::toRoute(['/desire/desire/delete', 'id'=>$greatestDesire->id],  ['data-pjax' => 0]); ?>">Remove</a></li>
                 </ul>
             </div>
+            <?php } ?>
         </div>
     </div>
 
@@ -89,6 +90,7 @@ use yii\helpers\Url;
 								</div>
 							</div>
 						</div>
+						<?php if($desire->content->canEdit()) { ?>
 						<div class="sub-context-menu">
 							<div class="context-menu-btn"><span></span><span></span><span></span></div>
 							<ul class="context-menu">
@@ -96,6 +98,7 @@ use yii\helpers\Url;
                                 <li><a href="<?= Url::toRoute(['/desire/desire/delete', 'id'=>$desire->id],  ['data-pjax' => 0]); ?>">Remove</a></li>
 							</ul>
 						</div>
+                        <?php } ?>
 					</div>
 				</div>
                 <?php } ?>

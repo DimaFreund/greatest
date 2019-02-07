@@ -37,17 +37,19 @@ class ListController extends GeneralController {
 	public function actionIndex()
 	{
 
+		$contentId = $this->contentContainer->id;
+
 		$counts = Favorite::getCountObjectsByUser($this->contentContainer);
 
-		$photos = Favorite::getFavoriteContentQuery(Media::className(), $this->contentContainer)->limit(6)->all();
+		$photos = Favorite::getFavoriteContentQuery(Media::className(), $contentId)->limit(6)->all();
 
-		$albums = Favorite::getFavoriteContentQuery(CustomGallery::className(), $this->contentContainer)->limit(3)->all();
+		$albums = Favorite::getFavoriteContentQuery(CustomGallery::className(), $contentId)->limit(3)->all();
 
-		$blogs = Favorite::getFavoriteContentQuery(Blog::className(), $this->contentContainer)->limit(3)->all();
+		$blogs = Favorite::getFavoriteContentQuery(Blog::className(), $contentId)->limit(3)->all();
 
-		$desires = Favorite::getFavoriteContentQuery(Desire::className(), $this->contentContainer)->limit(3)->all();
+		$desires = Favorite::getFavoriteContentQuery(Desire::className(), $contentId)->limit(3)->all();
 
-		$polls = Favorite::getFavoriteContentQuery(Poll::className(), $this->contentContainer)->limit(3)->all();
+		$polls = Favorite::getFavoriteContentQuery(Poll::className(), $contentId)->limit(3)->all();
 
 		return $this->render('index',
 			[

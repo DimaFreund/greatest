@@ -17,5 +17,11 @@ return [
 				],
 			],
 		],
+		'reCaptcha' => [
+			'name' => 'reCaptcha',
+			'class' => 'himiklab\yii2\recaptcha\ReCaptcha',
+			'siteKey' => '6Lcs6ocUAAAAAL4SLmokYLdyaBPbHU1UpMy3HxzE',
+			'secret' => '6Lcs6ocUAAAAAELD0dVC1Kw5vFmufLK2I4xxDC5t',
+		],
 	],
 ];

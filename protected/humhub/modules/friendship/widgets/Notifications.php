@@ -22,7 +22,7 @@ class Notifications extends Widget
 
 		$receivedRequestsCount = Friendship::getReceivedRequestsQuery(Yii::$app->user->getIdentity())->count();
 
-		$online_user = Friendship::getOnlineFriends(Yii::$app->user->getIdentity())->count();
+		$online_user = Friendship::getOnlineFriends(Yii::$app->user->getIdentity())->distinct()->count();
 		return $this->render('notifications', array(
 			'receivedRequestsCount' => $receivedRequestsCount,
 			'count_online_user'     => $online_user,

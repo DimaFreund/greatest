@@ -36,14 +36,17 @@ use yii\widgets\DetailView;
             <?= \humhub\modules\content\widgets\BottomPanelContent::widget(['object' => $model, 'ratingLink' => 1]); ?>
         </div>
 	    <?= Comments::widget(['object' => $model]); ?>
-
+        <?php if($model->content->canEdit()) { ?>
         <div class="sub-context-menu">
             <div class="context-menu-btn"><span></span><span></span><span></span></div>
             <ul class="context-menu">
                 <li><a href="<?= Url::toRoute(['/desire/desire/update', 'id'=>$model->id]); ?>">Edit</a></li>
+                <?php if(!$isGreatest) { ?>
                 <li><a href="<?= Url::toRoute(['/desire/desire/delete', 'id'=>$model->id],  ['data-pjax' => 0]); ?>">Remove</a></li>
+                <?php } ?>
             </ul>
         </div>
+        <?php } ?>
     </div>
 </div>
 <div class="base-btn"><a href="<?= $user->createUrl('/user/profile/desires'); ?>">Back to list</a></div>

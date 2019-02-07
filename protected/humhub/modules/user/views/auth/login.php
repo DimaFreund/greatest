@@ -59,6 +59,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', 'Login');
 			        ]])->checkbox(['id' => 'remember', 'label' => false]); ?><label for="remember">Remember me</label></div>
         </div>
         <div class="bottom">
+	        <?= $form->field($model, 'verifyCode')->widget(
+		        \himiklab\yii2\recaptcha\ReCaptcha::className()
+	        )->label(false); ?>
             <div class="base-btn"><input type="submit" value="Login"></div><a class="newPass" data-pjax-prevent href="<?= Url::toRoute('/user/password-recovery'); ?>"><?= Yii::t('UserModule.views_auth_login', 'Forgot your password?'); ?></a>
             <div class="signUp">
                 <p>Don't have an account?</p><a href="<?php echo Url::to(['registration/']) ?>">Sign Up</a></div>

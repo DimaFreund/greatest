@@ -69,8 +69,24 @@ use yii\helpers\Url;
                         <div class="lang-block">
 							<?= humhub\widgets\LanguageChooser::widget(); ?>
                         </div>
-                        <div class="search-block"><input type="text" placeholder="Search" id="headerSearch2"><input
-                                    type="submit" value=""></div>
+                        <div class="search-block">
+	                        <?php $form = ActiveForm::begin( [
+		                        'action'      => Url::to( [ '/search/search/index' ] ),
+		                        'method'      => 'GET',
+		                        'fieldConfig' => [
+			                        'options' => [
+				                        'tag' => false,
+			                        ],
+		                        ],
+	                        ] ); ?>
+	                        <?= $form->field( new SearchForm, 'keyword', [ 'errorOptions' => [ 'tag' => null ] ] )->textInput( [
+		                        'placeholder' => Yii::t( 'SearchModule.views_search_index', 'Search for user, spaces and content' ),
+		                        'title'       => Yii::t( 'SearchModule.views_search_index', 'Search for user, spaces and content' ),
+		                        'id'          => 'headerSearch2'
+	                        ] )->label( false ); ?>
+                            <input type="submit" value="">
+	                        <?php ActiveForm::end(); ?>
+                        </div>
                     </div>
                 </div>
             </div>

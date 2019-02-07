@@ -2,6 +2,7 @@
 
 /** @var \humhub\modules\user\models\User $originator */
 
+use humhub\modules\content\components\ContentActiveRecord;
 use humhub\modules\friendship\models\Friendship;
 
 /** @var \humhub\modules\space\models\Space $space */
@@ -26,10 +27,19 @@ use humhub\modules\friendship\models\Friendship;
 
         <div class="date"><?php echo humhub\widgets\TimeAgo::widget(['timestamp' => $record->created_at]); ?> </div>
     </div>
+    <?php try { ?>
     <?php $objectAction = $record->getSourceObject();
-        if(!(empty($objectAction) || $objectAction instanceof Friendship || $objectAction instanceof \humhub\modules\space\models\Space || $objectAction instanceof \humhub\modules\post\models\Post)) { ?>
+        if(!(empty($objectAction) ||
+             $objectAction instanceof Friendship ||
+             $objectAction instanceof \humhub\modules\space\models\Space ||
+             $objectAction instanceof \humhub\modules\post\models\Post ||
+            $objectAction instanceof ContentActiveRecord)) { ?>
 	        <?= \humhub\modules\file\widgets\ShowPhotoPreview::widget(['object' => $objectAction->polymorphicRelation, 'options' => ['index' => 0, 'width' => 44, 'height' => 33]]) ?>
-        <?php } ?>
+        <?php } elseif( $objectAction instanceof ContentActiveRecord) { ?>
+            <?= \humhub\modules\file\widgets\ShowPhotoPreview::widget(['object' => $objectAction, 'options' => ['index' => 0, 'width' => 44, 'height' => 33]]); ?>
+            <?php } ?>
+    <?php } catch (Exception $e) {
+    } ?>
     <div class="img-block">
 
     </div>

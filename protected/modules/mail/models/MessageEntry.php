@@ -52,9 +52,9 @@ class MessageEntry extends ActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array(['message_id', 'user_id', 'content'], 'required'),
+            array(['message_id', 'user_id'], 'required'),
             array(['message_id', 'user_id', 'file_id', 'created_by', 'updated_by'], 'integer'),
-            array(['created_at', 'updated_at'], 'safe'),
+            array(['created_at', 'updated_at', 'content'], 'safe'),
         );
     }
 

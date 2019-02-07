@@ -223,7 +223,7 @@ $(function() {
       return (step *Math.floor(Math.random() * (max - min + 1)/step)) + min;
     }
 
-    $('.random-desires .random-desire').each(function () {
+    $('.random-desires .random-desire').each(function (index) {
       var randomTop = getRandomVal(0, 90, 3);
       var randomLeft = getRandomVal(10, 90, 3);
       $(this).css({
@@ -231,15 +231,25 @@ $(function() {
         'left': randomLeft + '%',
         'box-shadow': '0 0 21px rgba(0, 0, 0, 0.2)'
       });
-
+      if (index === 0) {
+        $(this).addClass('default-active');
+      }
       if(randomLeft < 30) {
         $(this).removeClass('transformLeft transformRight');
         $(this).addClass('transformLeft');
       }
       if(randomLeft > 75) {
         $(this).removeClass('transformLeft transformRight');
-        $(this).addClass('transformRight')
+        $(this).addClass('transformRight');
       }
+    });
+
+    $('.random-desire').mouseover(function () {
+        $('.random-desires .default-active').removeClass('default-active');
+    });
+
+    $('.random-desire').mouseout(function () {
+        $('.random-desire:first-child').addClass('default-active');
     });
   }
   $(window).on('load resize orientationchange', function () {

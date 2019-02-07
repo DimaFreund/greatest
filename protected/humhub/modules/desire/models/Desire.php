@@ -9,6 +9,8 @@
 namespace humhub\modules\desire\models;
 
 use humhub\modules\desire\activities\GreatestDesireUpdate;
+use humhub\modules\desire\notifications\NewDesire;
+use humhub\modules\friendship\models\Friendship;
 use humhub\modules\tags\models\Tags;
 use humhub\modules\tags\models\TagsDesire;
 use Yii;
@@ -40,6 +42,8 @@ class Desire extends ContentActiveRecord implements Searchable
      */
     public $wallEntryClass = 'humhub\modules\desire\widgets\WallEntry';
 
+	public $verifyCode;
+
     /**
      * @inheritdoc
      */
@@ -58,13 +62,19 @@ class Desire extends ContentActiveRecord implements Searchable
      */
     public function rules()
     {
-        return [
-            [['title'], 'required'],
-	        [['title'], 'string', 'min' => 10],
-            [['message'], 'string'],
-	        [['greatest'], 'integer'],
-            [['url'], 'string', 'max' => 255]
-        ];
+    	$rules = [
+		    [['title'], 'required'],
+		    [['title'], 'string', 'min' => 10],
+		    [['message'], 'string'],
+		    [['greatest'], 'integer'],
+		    [['url'], 'string', 'max' => 255]
+	    ];
+    	if(Yii::$app->user->isGuest) {
+    		$rules = array_merge($rules,[
+			    [['verifyCode'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6Lcs6ocUAAAAAELD0dVC1Kw5vFmufLK2I4xxDC5t'],
+		    ]);
+	    }
+        return $rules;
     }
 
     /**
@@ -95,6 +105,13 @@ class Desire extends ContentActiveRecord implements Searchable
         // Handle mentioned users
         \humhub\modules\user\models\Mentioning::parse($this, $this->message);
 
+		if($insert) {
+			$currentUser = Yii::$app->user->getIdentity();
+			$friends = Friendship::getFriendsQuery($currentUser)->all();
+			foreach ($friends as $friend) {
+				NewDesire::instance()->from( $currentUser )->about( $this )->send( $friend );
+			}
+		}
         return true;
     }
 
@@ -279,6 +296,11 @@ class Desire extends ContentActiveRecord implements Searchable
 	public function clearCurrentTags()
 	{
 		TagsDesire::deleteAll(['desire_id'=>$this->id]);
+	}
+
+	public function getSource()
+	{
+		return $this;
 	}
 
 }

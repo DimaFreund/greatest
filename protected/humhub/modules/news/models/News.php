@@ -9,6 +9,8 @@
 namespace humhub\modules\news\models;
 
 use humhub\modules\content\models\Category;
+use humhub\modules\friendship\models\Friendship;
+use humhub\modules\news\notifications\NewNews;
 use humhub\modules\tags\models\Tags;
 use humhub\modules\tags\models\TagsDesire;
 use Yii;
@@ -90,6 +92,14 @@ class News extends ContentActiveRecord implements Searchable
 
         // Handle mentioned users
         \humhub\modules\user\models\Mentioning::parse($this, $this->message);
+
+	    if($insert) {
+		    $currentUser = Yii::$app->user->getIdentity();
+		    $friends = User::find()->all();
+		    foreach ($friends as $friend) {
+			    NewNews::instance()->from( $currentUser )->about( $this )->send( $friend );
+		    }
+	    }
 
         return true;
     }
@@ -228,6 +238,11 @@ class News extends ContentActiveRecord implements Searchable
 	public function clearCurrentTags()
 	{
 		TagsDesire::deleteAll(['desire_id'=>$this->id]);
+	}
+
+	public function getSource()
+	{
+		return $this;
 	}
 
 }

@@ -83,9 +83,6 @@ class BlogController extends GeneralController {
 		$model->content->visibility = 1;
 		$model->content->container = $this->contentContainer;
 
-		$isSuccessStories = (Yii::$app->request->get('id') == 100);
-
-
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() && $model->save() ) {
 
 			$this->view->saved();
@@ -93,6 +90,12 @@ class BlogController extends GeneralController {
 			$model->saveTags();
 
 			return $this->redirect( $model->user->createUrl('/user/profile/blog-one', ['id' => $model->id ]) );
+		}
+
+		$isSuccessStories = (Yii::$app->request->get('id') == 100);
+
+		if($isSuccessStories) {
+			$model->category = 100;
 		}
 
 		return $this->render( 'create',

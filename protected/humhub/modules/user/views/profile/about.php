@@ -146,12 +146,13 @@ use yii\helpers\Url;
                 </div>
             </div>
             <?php } ?>
-
+	        <?php if($user->id === Yii::$app->user->id) { ?>
             <div class="sub-context-menu">
                 <div class="context-menu-btn"><span></span><span></span><span></span></div>
                 <ul class="context-menu">
                     <li><a href="<?= Url::to(['account/edit']); ?>">Edit</a></li>
                 </ul>
-            </div>
+            </div>nav nav-pills preferences
+	        <?php } ?>
         </div>
     </div>

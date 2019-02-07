@@ -85,6 +85,7 @@ use yii\widgets\DetailView;
         <div class="comment-form">
             <div class="author-img"><img src="img/profile_photo-1.jpg"></div>
             <div class="textarea-block"><textarea placeholder="Your Comment" rows="1"></textarea></div><input type="submit" value="send"></div>
+        <?php if($model->content->canEdit()) { ?>
         <div class="sub-context-menu">
             <div class="context-menu-btn"><span></span><span></span><span></span></div>
             <ul class="context-menu">
@@ -92,6 +93,7 @@ use yii\widgets\DetailView;
                 <li><a href="<?= Url::toRoute(['desire/delete', 'id'=>$model->id],  ['data-pjax' => 0]); ?>">Remove</a></li>
             </ul>
         </div>
+        <?php } ?>
     </div>
 </div>
 </div>

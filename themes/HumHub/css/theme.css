@@ -1793,10 +1793,35 @@ table td a:hover{
     max-width:100%
 }
 .wall-entry .content img{
-    max-width:100%
+    max-width:100%;
+    height: auto;
 }
 .wall-entry .media{
     overflow:visible
+}
+.dropdown-menu {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.dropdown-menu > li {
+    margin-bottom: 3px;
+}
+.dropdown-menu > li > a {
+    padding: 5px 8px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .btn-group .dropdown-menu {
+        overflow: hidden;
+        min-width: 230px;
+        left: -80px;
+    }
+    .dropdown-menu > li > a {
+        padding: 2px 5px;
+    }
+}
+.dropdown-menu > li > a span {
+    padding-left: 4px;
 }
 .wall-entry .well{
     margin-bottom:0
@@ -1975,6 +2000,7 @@ table td a:hover{
 .post-files{
     margin-top:10px
 }
+.post-files img { width: 100%; height: auto; margin-bottom: 10px; }
 .post-files a {
     font-size: 0;
 }
