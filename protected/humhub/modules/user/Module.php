@@ -63,7 +63,7 @@ class Module extends \humhub\components\Module
      * @var int minimum username length
      * @since 1.2
      */
-    public $minimumUsernameLength = 4;
+    public $minimumUsernameLength = 3;
 
     /**
      * @var callable a callback that returns the user displayName

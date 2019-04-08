@@ -30,7 +30,7 @@ use yii\helpers\Url;
             <div class="bottom">
                 <div class="wrap">
                     <div class="desire-top">
-                        <div class="title"><svg class="icon icon-earth_green"><use xlink:href="./svg/sprite/sprite.svg#earth_green"></use></svg>My Greatest Desire is…</div>
+                        <div class="title"><svg class="icon icon-earth_green"><use xlink:href="./svg/sprite/sprite.svg#earth_green"></use></svg><?= Yii::t('base','My Greatest Desire is'); ?>…</div>
 	                    <?= \humhub\modules\rating\widgets\RatingDisplay::widget(['object' => $greatestDesire]); ?>
                     </div>
                     <div class="desire-text">
@@ -58,8 +58,8 @@ use yii\helpers\Url;
 	<div class="content-wrap">
 		<div class="personal-profile-all-desires">
             <ul class="small-tabs-controls">
-                <li class="<?= ($this->context->action->id === 'desires')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/desires'); ?>">My Desires</a></li>
-                <li class="<?= ($this->context->action->id === 'favorite-desires')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/favorite-desires'); ?>">Favorite desires</a></li>
+                <li class="<?= ($this->context->action->id === 'desires')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/desires'); ?>"><?= Yii::t('base','My Desires'); ?></a></li>
+                <li class="<?= ($this->context->action->id === 'favorite-desires')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/favorite-desires'); ?>"><?= Yii::t('base','Favorite desires'); ?></a></li>
             </ul>
 			<div class="all-desires">
                 <?php foreach($desireList as $desire) { ?>
@@ -77,7 +77,7 @@ use yii\helpers\Url;
 						<div class="bottom">
 							<div class="wrap">
 								<div class="desire-top">
-									<div class="title">My Desire is…</div>
+									<div class="title"><?= Yii::t('base','My Desire is…'); ?></div>
 									<?= \humhub\modules\rating\widgets\RatingDisplay::widget(['object' => $desire]); ?>
 								</div>
 								<div class="desire-text"><a class="text" href="<?= $contentContainer->createUrl('/user/profile/desire-one', ['id' => $desire->id]); ?>"><?= $desire->title; ?></a>
@@ -94,8 +94,8 @@ use yii\helpers\Url;
 						<div class="sub-context-menu">
 							<div class="context-menu-btn"><span></span><span></span><span></span></div>
 							<ul class="context-menu">
-                                <li><a href="<?= Url::toRoute(['/desire/desire/update', 'id'=>$desire->id]); ?>">Edit</a></li>
-                                <li><a href="<?= Url::toRoute(['/desire/desire/delete', 'id'=>$desire->id],  ['data-pjax' => 0]); ?>">Remove</a></li>
+                                <li><a href="<?= Url::toRoute(['/desire/desire/update', 'id'=>$desire->id]); ?>"><?= Yii::t('base','Edit'); ?></a></li>
+                                <li><a href="<?= Url::toRoute(['/desire/desire/delete', 'id'=>$desire->id],  ['data-pjax' => 0]); ?>"><?= Yii::t('base','Remove'); ?></a></li>
 							</ul>
 						</div>
                         <?php } ?>

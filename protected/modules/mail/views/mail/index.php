@@ -8,6 +8,7 @@ use yii\helpers\Url;
 //    $this->registerJs('loadMessage(' . Html::encode($messageId) . ');');
 //}
 ?>
+<div class="mailbox-wrapper">
 <div class="page-content">
     <div class="content-wrap">
         <?= $this->render('_show', ['message' => $message, 'replyForm' => $replyForm]); ?>
@@ -52,3 +53,4 @@ use yii\helpers\Url;
         </ul>
     </div>
 </aside>
+</div>

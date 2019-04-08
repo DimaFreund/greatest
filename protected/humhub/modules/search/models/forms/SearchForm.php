@@ -48,7 +48,8 @@ class SearchForm extends \yii\base\Model
     public function rules() 
     {
         return [
-            [['keyword','scope','page','limitSpaceGuids'], 'safe']
+            [['keyword','scope','page','limitSpaceGuids'], 'safe'],
+	        ['keyword', 'string', 'min' => 2, 'max' => 50]
         ];
     }
     

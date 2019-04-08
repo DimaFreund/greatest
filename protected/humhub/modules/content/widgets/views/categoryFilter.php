@@ -14,7 +14,7 @@ use yii\helpers\Url;
 ?>
 
 <div class="sidebar-categories">
-	<div class="title">Categories</div>
+	<div class="title"><?= Yii::t('base','Categories'); ?></div>
 	    <?php $form = ActiveForm::begin(['action' => Url::toRoute(''), 'method' => 'GET', 'fieldConfig' => [
 		    'options' => [
 			    'tag' => false,

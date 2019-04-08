@@ -35,6 +35,7 @@ use humhub\modules\content\models\Content;
  * @property string $updated_at
  * @property integer $updated_by
  * @property string $last_login
+ * @property string $info_status
  * @property string $authclient_id
  * @property integer $visibility
  * @property integer $contentcontainer_id
@@ -91,7 +92,7 @@ class User extends ContentContainerActiveRecord implements \yii\web\IdentityInte
 
 	public static function objectName()
 	{
-		return 'user'; //TODO translate;
+		return Yii::t('base','user');
 	}
 
     /**
@@ -109,6 +110,7 @@ class User extends ContentContainerActiveRecord implements \yii\web\IdentityInte
             [['status', 'visibility'], 'integer'],
             [['tags'], 'string'],
             [['guid'], 'string', 'max' => 45],
+	        ['info_status', 'string', 'max' => 255],
             [['username'], 'string', 'max' => 50, 'min' => $userModule->minimumUsernameLength],
             [['time_zone'], 'in', 'range' => \DateTimeZone::listIdentifiers()],
             [['auth_mode'], 'string', 'max' => 10],

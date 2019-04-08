@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 <div class="page-content">
     <div class="content-wrap">
         <div class="create-blog">
-            <h2>Create <?= $isSuccessStories?'Success stories':'blog post'; ?></h2>
+            <h2><?= Yii::t('base','Create'); ?> <?= $isSuccessStories?Yii::t('base','Success stories'):Yii::t('base','blog post'); ?></h2>
 
 			<?php $form = ActiveForm::begin([
 				'fieldConfig' => [
@@ -23,16 +23,16 @@ use yii\widgets\ActiveForm;
 				],
             ]); ?>
 
-			<?= $form->field( $model, 'title' )->textInput( [ 'maxlength' => true, 'class' => false ] ) ?>
+			<?= $form->field( $model, 'title' )->textInput( [ 'class' => false ] )->label(Yii::t('base','Title')) ?>
 
 
-			<?= $form->field( $model, 'message' )->textarea( [ 'rows' => 6, 'class' => false ] ) ?>
+			<?= $form->field( $model, 'message' )->textarea( [ 'rows' => 6, 'class' => false ] )->label(Yii::t('base','Description')) ?>
 
 			<?= $form->field( $model, 'category', [
 			        'options' => [
 			                'class' => 'sm-item form-item '.($isSuccessStories?'hidden':''),
                     ]
-            ] )->dropDownList( $category , ['class' => false]); ?>
+            ] )->dropDownList( $category , ['class' => false])->label(Yii::t('base','Category')); ?>
 			<?=
 			humhub\modules\file\widgets\UploadButton::widget( [
 				'id'       => 'comment_create_upload_' . $model->id,
@@ -55,7 +55,7 @@ use yii\widgets\ActiveForm;
 
             <div class="form-group">
                 <div class="base-btn reverse">
-				<?= Html::submitButton( $model->isNewRecord ? 'Create' : 'Update', [ 'class' => 'btn btn-primary' ] ) ?>
+				<?= Html::submitButton( $model->isNewRecord ? Yii::t('base','Create') : Yii::t('base','Update'), [ 'class' => 'btn btn-primary' ] ) ?>
             </div>
             </div>
 

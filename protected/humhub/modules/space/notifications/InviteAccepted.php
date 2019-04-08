@@ -53,7 +53,7 @@ class InviteAccepted extends BaseNotification
      */
     public function html()
     {
-        return Yii::t('SpaceModule.notification', '{displayName} accepted your invite for the space {spaceName}', [
+        return Yii::t('SpaceModule.notification', '{displayName} accepted your invite for the group {spaceName}', [
                     '{displayName}' => Html::tag('strong', Html::encode($this->originator->displayName)),
                     '{spaceName}' => Html::tag('strong', Html::encode($this->source->name))
         ]);

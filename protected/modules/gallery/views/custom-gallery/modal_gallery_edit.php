@@ -14,34 +14,34 @@
 
 <?php
 \humhub\widgets\ModalDialog::begin([
-    'header' => $galleryForm->instance->isNewRecord ? Yii::t('GalleryModule.base', '<strong>Add</strong> new gallery') : Yii::t('GalleryModule.base', '<strong>Edit</strong> gallery'),
+    'header' => $galleryForm->instance->isNewRecord ? Yii::t('base', '<strong>Add</strong> new gallery') : Yii::t('base', '<strong>Edit</strong> gallery'),
     'animation' => 'fadeIn',
     'size' => 'small']);
 ?>
     <?php $form = \yii\bootstrap\ActiveForm::begin(['id' => 'Gallery', 'class' => 'form-horizontal']); ?>
 
         <div class="modal-body">
-            <select name="album" id="album-choice">
-                <option value="new">Create new Album</option>
+            <select class="form-control" name="album" id="album-choice">
+                <option value="new"><?= Yii::t('base','Create new Album'); ?></option>
                 <?php foreach( $listGallery as $gallery) { ?>
                     <option value="<?= $this->context->contentContainer->createUrl('/gallery/custom-gallery/view', ['openGalleryId' => $gallery->id. '#.jpeg']); ?>"><?= $gallery->title; ?></option>
                 <?php } ?>
             </select>
             <div id="fields-for-create">
-                <?= $form->field($galleryForm->instance, 'title'); ?>
-                <?= $form->field($galleryForm->instance, 'description')->textArea(); ?>
-                <?= $form->field($galleryForm, 'visibility')->checkbox(['label' => Yii::t('GalleryModule.base', 'Make this gallery public')])?>
-                <?= $form->field($galleryForm->instance, 'category')->dropDownList($category); ?>
+                <?= $form->field($galleryForm->instance, 'title')->textInput(['maxlength' => 64])->label(Yii::t('base','Title')); ?>
+                <?= $form->field($galleryForm->instance, 'description')->textArea(['maxlength' => 1024])->label(Yii::t('base','Description')); ?>
+                <?= $form->field($galleryForm, 'visibility')->checkbox(['label' => Yii::t('base', 'Make this gallery public')])?>
+                <?= $form->field($galleryForm->instance, 'category')->dropDownList($category)->label(Yii::t('base','Category')); ?>
             </div>
         </div>
-
+<p style="text-align: center; color: darkred; font-weight: bold; font-size: 22px" class="help-block help-block-error"><?=$errorMessage; ?></p>
         <div class="modal-footer">
             <button id="create-gallery-button" class="btn btn-primary" data-action-click="ui.modal.submit" data-ui-loader type="submit"
                     data-action-url="<?= $contentContainer->createUrl('/gallery/custom-gallery/edit', ['itemId' => $galleryForm->instance->getItemId()]) ?>">
-                        <?= \Yii::t('GalleryModule.base', 'Save'); ?>
+                        <?= \Yii::t('base', 'Save'); ?>
             </button>
             <button type="button" class="btn btn-primary" data-modal-close>
-                <?= \Yii::t('GalleryModule.base', 'Close'); ?>
+                <?= \Yii::t('base', 'Close'); ?>
             </button>
         </div>
     <?php \yii\bootstrap\ActiveForm::end(); ?>
@@ -54,10 +54,10 @@
         var fields = $('#fields-for-create');
         if(value === 'new') {
             fields.css('display', 'block');
-            $('#create-gallery-button').html('<?= \Yii::t('GalleryModule.base', 'Save'); ?>');
+            $('#create-gallery-button').html('<?= \Yii::t('base', 'Save'); ?>');
         } else {
             fields.css('display', 'none');
-            $('#create-gallery-button').html('open');
+            $('#create-gallery-button').html('<?= Yii::t('base','Open'); ?>');
         }
     })
 

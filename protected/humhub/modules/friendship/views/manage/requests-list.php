@@ -19,8 +19,8 @@ foreach($users as $user) { ?>
 			<div class="user-desire"><?= $user->greatest_desire->title; ?></div>
             </a>
 			<div class="btn-block">
-				<div class="base-sm-btn"><?= Html::a('Accept', ['/friendship/request/add', 'userId' => $user->id], ['class' => '', 'data-method' => 'POST']); ?></div>
-				<div class="base-sm-btn"><?= Html::a('Reject', ['/friendship/request/delete', 'userId' => $user->id], ['class' => '', 'data-method' => 'POST']); ?></div>
+				<div class="base-sm-btn"><?= Html::a(Yii::t('base','Accept'), ['/friendship/request/add', 'userId' => $user->id], ['class' => '', 'data-method' => 'POST']); ?></div>
+				<div class="base-sm-btn"><?= Html::a(Yii::t('base','Reject'), ['/friendship/request/delete', 'userId' => $user->id], ['class' => '', 'data-method' => 'POST']); ?></div>
 			</div>
 		</div>
 

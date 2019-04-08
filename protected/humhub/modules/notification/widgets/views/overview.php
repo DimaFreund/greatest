@@ -21,16 +21,16 @@ $this->registerJsConfig('notification', [
         </svg>
         <div id="badge-notifications" class="activity-counter" style="display: flex;"><span></span></div>
     </div>
-    <div class="tooltip-base">Notifications</div>
+    <div class="tooltip-base"><?= Yii::t('base','Notifications'); ?></div>
     <div class="activity-sub-menu">
         <div class="notifications-sub-menu">
             <div class="sub-menu-header">
-                <div class="title">Notifications</div>
-                <div class="counter"><span><span></span> New</span></div>
+                <div class="title"><?= Yii::t('base','Notifications'); ?></div>
+                <div class="counter"><span><span></span> <?= Yii::t('base','New'); ?></span></div>
             </div>
             <div class="sub-menu-content">
                 <div class="newList">
-                    <div class="list-header"><span>New</span></div>
+                    <div class="list-header"><span><?= Yii::t('base','New'); ?></span></div>
                     <ul id="dropdown-notifications">
                         <ul class="media-list"></ul>
                         <li id="loader_notifications">
@@ -40,7 +40,7 @@ $this->registerJsConfig('notification', [
                     </ul>
                 </div>
                                 <div class="earlierList">
-                                    <div class="list-header"><span>Earlier</span></div>
+                                    <div class="list-header"><span><?= Yii::t('base','Earlier'); ?></span></div>
                                     <ul class="media-list-old"></ul>
                                 </div>
             </div>
@@ -48,7 +48,7 @@ $this->registerJsConfig('notification', [
                 <a href="#" class="markAsRead" id="mark-seen-link" data-action-click='markAsSeen' data-action-url="<?= Url::to(['/notification/list/mark-as-seen']); ?>">
 		            <?= Yii::t('NotificationModule.widgets_views_list', 'Mark all as seen'); ?>
                 </a>
-                <a class="seeAll" href="<?= Url::to(['/notification/overview']); ?>">See all</a></div>
+                <a class="seeAll" href="<?= Url::to(['/notification/overview']); ?>"><?= Yii::t('base','See all'); ?></a></div>
         </div>
     </div>
 </div>

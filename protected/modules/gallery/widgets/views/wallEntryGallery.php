@@ -22,7 +22,7 @@ use humhub\libs\Html;
         </div>
         <div class="sub-title">
 			<?php if ( $gallery->title ) : ?>
-                <strong><?= Yii::t( 'GalleryModule.base', 'Gallery:' ); ?></strong> <a
+                <strong><?= Yii::t( 'base', 'Gallery' ); ?>:</strong> <a
                         href="<?php $gallery->content->container->createUrl( '/user/profile/photos', [ 'id' => $gallery->id ] ); ?>"><?= Html::encode( $gallery->title ) ?></a>
                 <br/>
 			<?php endif ?>

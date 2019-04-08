@@ -75,10 +75,14 @@ class CustomGalleryController extends ListController
 
 	    $category = new Category();
 	    $category = $category->getAllCurrentLanguage(Yii::$app->language, 'gallery');
-
-        if ($gallery->load(Yii::$app->request->post()) && $gallery->save()) {
+		$errorMessage = '';
+        if ($gallery->load(Yii::$app->request->post())) {
+        	if($gallery->save()) {
             $this->view->saved();
             return $this->htmlRedirect($this->contentContainer->createUrl('/gallery/custom-gallery/view', ['openGalleryId' => $gallery->instance->id]));
+	        } else {
+        		$errorMessage = Yii::t('base','Too much albums, max 50!');
+	        }
         }
 
         $listGallery = CustomGallery::find()->contentContainer($this->contentContainer)->readable();
@@ -88,6 +92,7 @@ class CustomGalleryController extends ListController
                     'galleryForm' => $gallery,
                     'contentContainer' => $this->contentContainer,
 	                'category' => $category,
+	                'errorMessage' => $errorMessage,
 	                'listGallery' => $listGallery,
         ]);
     }

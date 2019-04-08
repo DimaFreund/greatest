@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 <?= \humhub\widgets\RichtextField::widget([
         'name' => 'question',
-        'placeholder' => Yii::t('PollsModule.widgets_views_pollForm', "Click here for create new poll."),
+        'placeholder' => Yii::t('base', "Click here for create new poll."),
         'id' => 'pollForm_message',
 ]); ?>
 

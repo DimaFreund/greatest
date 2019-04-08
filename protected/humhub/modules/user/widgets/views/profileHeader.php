@@ -82,7 +82,7 @@ if ( $allowModifyProfileBanner || $allowModifyProfileImage ) {
                             <svg class="icon icon-earth_green">
                                 <use xlink:href="./svg/sprite/sprite.svg#earth_green"></use>
                             </svg>
-                            My Greatest Desire is…
+                            <?= Yii::t('base','My Greatest Desire is'); ?>…
                         </div>
 						<?= \humhub\modules\rating\widgets\RatingDisplay::widget(['object' => $greatestDesire]); ?>
                     </div>
@@ -103,7 +103,8 @@ if ( $allowModifyProfileBanner || $allowModifyProfileImage ) {
 						<?= \humhub\modules\sharebetween\widgets\ShareLink::widget(['object' => $greatestDesire]); ?>
                         <div class="stars">
 							<?= \humhub\modules\favorite\widgets\FavoriteLink::widget(['object' => $greatestDesire]); ?>
-                            <a class="text" href=" <?= $user->createUrl('/user/profile/desires'); ?>">View all desires</a>
+                            <a class="text" href=" <?= $user->createUrl('/user/profile/desires'); ?>">
+                                <?= Yii::t('base','View all desires'); ?></a>
                         </div>
                     </div>
                     </div>

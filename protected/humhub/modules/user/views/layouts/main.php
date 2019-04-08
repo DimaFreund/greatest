@@ -43,8 +43,8 @@ AppAsset::register($this);
                     </ul>
                 </div>
                 <div class="link-block">
-                    <div class="base-btn"><a data-action-click="ui.modal.load"  href="#" data-action-url="/index.php/user/auth/login">Login</a></div>
-                    <div class="base-btn reverse"><a data-pjax="0" href="<?php echo Url::to(['registration/']) ?>">Create Account</a></div>
+                    <div class="base-btn"><a class="loginPopUp" href="#login-form"><?= Yii::t('base', 'Login'); ?></a></div>
+                    <div class="base-btn reverse"><a data-pjax="0" href="<?php echo Url::to(['registration/']) ?>"><?= Yii::t('base', 'Create Account'); ?></a></div>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@ AppAsset::register($this);
         </div>
         <div class="bottom">
             <div class="base-wrap">
-                <div class="copy">© All rights reserved.</div>
+                <div class="copy"><?= Yii::t('base','© All rights reserved.'); ?></div>
                 <div class="dev-logo"><a href="#"><svg class="icon icon-logo_footer"><use xlink:href="<?= $this->theme->getBaseUrl(); ?>/svg/sprite/sprite.svg#logo_footer"></use></svg></a></div>
             </div>
         </div>

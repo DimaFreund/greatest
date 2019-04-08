@@ -17,8 +17,8 @@ use yii\helpers\Url;
     <div class="content-wrap">
         <div class="photos-page">
             <div class="photos-page-header">
-                <div class="title">Photos</div>
-                <div class="subtitle">Public Photos</div>
+                <div class="title"><?= Yii::t('base','Photos'); ?></div>
+                <div class="subtitle"><?= Yii::t('base','Public Photos'); ?></div>
                 <div class="filters">
 	                <?= \humhub\modules\content\widgets\CategorySelectFilter::widget(['model' => Yii::$app->controller->module->id]); ?>
                 </div>
@@ -36,7 +36,7 @@ use yii\helpers\Url;
     <div class="content-wrap">
         <div class="photos-page">
             <div class="photos-page-header">
-                <div class="subtitle">Public Albums</div>
+                <div class="subtitle"><?= Yii::t('base','Public Albums'); ?></div>
 	            <?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $albums]); ?>
             </div>
             <div class="albums-layout" id="list-albums">
@@ -48,7 +48,7 @@ use yii\helpers\Url;
         </div>
     </div>
 	<?php if($countAlbums > count($albums)) { ?>
-        <div class="base-btn"><a data-offset-albums="<?= count($albums); ?>" id="load-more-button-albums">Load more</a></div>
+        <div class="base-btn"><a data-offset-albums="<?= count($albums); ?>" id="load-more-button-albums"><?= Yii::t('base','Load more'); ?></a></div>
 	<?php } ?>
 
 

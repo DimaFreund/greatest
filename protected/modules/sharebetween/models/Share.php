@@ -20,7 +20,7 @@ class Share extends ContentActiveRecord
 
     public function objectName()
     {
-    	return 'shared';
+    	return Yii::t('base', 'shared');
     }
 
     public function getTitle()
@@ -66,7 +66,7 @@ class Share extends ContentActiveRecord
     }
 	public function getContentName()
 	{
-		return Yii::t('SharebetweenModule.share', "Share");
+		return Yii::t('base', "Share");
 	}
 
 

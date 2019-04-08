@@ -38,7 +38,7 @@ if ($this->context->contentContainer instanceof humhub\modules\space\models\Spac
                 <i class="fa fa-arrow-circle-right"></i>
                 <?= Html::encode($description) ?>
                 <a class="btn btn-default btn-sm pull-right" data-ui-loader href="<?= $this->context->contentContainer->createUrl('/gallery/list') ?>">
-                    <i class="glyphicon glyphicon-arrow-left"></i> <?= Yii::t('GalleryModule.base', 'Back to overview') ?>
+                    <i class="glyphicon glyphicon-arrow-left"></i> <?= Yii::t('base', 'Back to overview') ?>
                 </a>
             </div>
         </div>

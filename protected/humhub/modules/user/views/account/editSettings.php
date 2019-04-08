@@ -18,10 +18,10 @@ use \humhub\compat\CHtml;
 <?= $form->field($model, 'timeZone')->dropDownList(TimezoneHelper::generateList(), ['data-ui-select2' => '']); ?>
 
 <?= $form->field($model, 'status_online')->dropDownList([
-    '0'=>'Online',
-    '1'=>'Ofline',
-    '2' =>'Away',
-    '3'=>'Busy',
+    '0'=>Yii::t('base','Online'),
+    '1'=>Yii::t('base','Ofline'),
+    '2' =>Yii::t('base','Away'),
+    '3'=>Yii::t('base','Busy'),
     ]);; ?>
 
 <?= $form->field($model, 'info_status')->textInput(); ?>

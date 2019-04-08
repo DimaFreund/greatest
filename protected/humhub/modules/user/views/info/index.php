@@ -17,7 +17,7 @@ use yii\helpers\Url;
 <main>
     <section class="all-success-stories">
         <div class="base-wrap">
-            <h1 class="base-lg-title">Success stories</h1>
+            <h1 class="base-lg-title"><?= Yii::t('base', 'Success stories'); ?></h1>
             <div class="items-wrap success-stories">
 	            <?php foreach($model as $item){ ?>
 	            <?php if(!empty($item->attributes['image'])){ ?>

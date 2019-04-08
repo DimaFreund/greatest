@@ -13,7 +13,7 @@ use humhub\modules\comment\widgets\Comments;
         <div class="blog-post-list blog-page">
             <div class="blog-page-header">
                 <div class="title"><?= $title; ?></div>
-                <div class="stat"><?= $count; ?> <?= $title; ?> Posts</div>
+                <div class="stat"><?= $count; ?> <?= $title; ?> <?= Yii::t('base','Posts'); ?></div>
                 <div class="filters">
                     <?= \humhub\modules\content\widgets\CategorySelectFilter::widget(['model' => Yii::$app->controller->module->id]); ?>
                    <?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $articles]); ?>

@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\AdminDesiresSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Success stories';
+$this->title = Yii::t('base', 'Success stories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-desires-index" style="text-align:center">
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 	<p>
-		<?= Html::a('Create Success stories', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a(Yii::t('base', 'Create').' '.Yii::t('base', 'Success stories'), ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 	<?php Pjax::begin(); ?>    <?= GridView::widget([
 		'dataProvider' => $dataProvider,

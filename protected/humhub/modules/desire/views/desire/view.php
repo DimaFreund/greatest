@@ -11,7 +11,7 @@ use yii\widgets\DetailView;
 <div class="content-wrap">
     <div class="personal-profile-desire-single comments-node">
         <div class="desire-top">
-            <div class="title">My Desire is…</div>
+            <div class="title"><?= Yii::t('base','My Desire is'); ?>…</div>
             <div class="star-rating"><span class="starVal">3.5</span><span class="counterVal">122</span></div>
         </div>
         <div class="desire-text">

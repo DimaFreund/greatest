@@ -50,63 +50,63 @@ class BaseLeftMenu extends \humhub\widgets\BaseMenu
 
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Home'),
+				'label' => Yii::t('base', 'Home'),
 				'url' => Url::to(['/dashboard']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'dashboard'),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Success stories'),
+				'label' => Yii::t('base', 'Success stories'),
 				'url' => Url::to(['/blog/blog', 'Category[filter][]' => 100]),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'blog' && Yii::$app->controller->id == "blog" && Yii::$app->controller->action->id == "index" && $parameter == 100 ),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Desires'),
+				'label' => Yii::t('base', 'Desires'),
 				'url' => Url::to(['/desire/desire/list']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'desire' && Yii::$app->controller->id == "desire" && Yii::$app->controller->action->id == "list"),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Chat'),
+				'label' => Yii::t('base', 'Chat'),
 				'url' => Url::toRoute(['/mail/chat']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->id == "chat" && Yii::$app->controller->action->id == "index"),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Photos'),
+				'label' => Yii::t('base', 'Photos'),
 				'url' => Url::toRoute(['/gallery/gallery/']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'gallery' && Yii::$app->controller->id == "gallery" && Yii::$app->controller->action->id == "index"),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Blogs'),
+				'label' => Yii::t('base', 'Blogs'),
 				'url' => Url::toRoute(['/blog/blog/']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'blog' && Yii::$app->controller->id == "blog" && Yii::$app->controller->action->id == "index" && $parameter != 100),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Groups'),
+				'label' => Yii::t('base', 'Groups'),
 				'url' => Url::toRoute(['/space/list']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'space' && Yii::$app->controller->id == "list" && Yii::$app->controller->action->id == "index"),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Polls'),
+				'label' => Yii::t('base', 'Polls'),
 				'url' => Url::toRoute(['/polls/list']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->module->id == 'polls' && Yii::$app->controller->id == "list"),
 			]);
 
 			$this->addItem([
-				'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'News'),
+				'label' => Yii::t('base', 'News'),
 				'url' => Url::toRoute(['/news/news']),
 				'sortOrder' => 500,
 				'isActive' => (Yii::$app->controller->id == "manage" && Yii::$app->controller->action->id == "list"),

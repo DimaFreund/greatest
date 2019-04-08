@@ -57,7 +57,7 @@ class Events extends \yii\base\Object
         // Is Module enabled on this workspace?
         if ($space->isModuleEnabled('polls')) {
             $event->sender->addItem(array(
-                'label' => Yii::t('PollsModule.base', 'Polls'),
+                'label' => Yii::t('base', 'Polls'),
                 'group' => 'modules',
                 'url' => $space->createUrl('/polls/poll/show'),
                 'icon' => '<i class="fa fa-question-circle"></i>',

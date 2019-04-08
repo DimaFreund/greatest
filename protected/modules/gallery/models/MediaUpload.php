@@ -13,7 +13,7 @@ class MediaUpload extends \humhub\modules\file\models\FileUpload
     /**
      * The supported extensions
      */
-    public $validExtensions = ['jpg', 'gif', 'bmp', 'svg', 'tiff', 'png'];
+    public $validExtensions = ['png','jpeg','gif','jpg'];
 
     /**
      * @inheritdoc

@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\AdminDesires */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Success stories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('base', 'Success stories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-desires-view">

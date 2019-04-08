@@ -34,7 +34,10 @@ class GuestQuestion extends \yii\db\ActiveRecord
 			[['name','email'], 'required'],
 			[['email'], 'email'],
 			[['date'], 'default', 'value' => date('Y-m-d')],
-			[['name', 'email', 'subject'], 'string', 'max' => 255],
+			['name', 'string', 'length' => [3, 30]],
+			['email', 'string', 'length' => [3, 50]],
+			['email', 'email'],
+			['subject', 'string', 'length' => [3, 8192]],
 		];
 	}
 

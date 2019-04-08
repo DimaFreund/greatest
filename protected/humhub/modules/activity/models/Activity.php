@@ -71,7 +71,7 @@ class Activity extends ContentActiveRecord
 
     public static function objectName()
     {
-    	return 'activity';
+    	return Yii::t('base','activity');
     }
 
     /**
@@ -138,7 +138,7 @@ class Activity extends ContentActiveRecord
 
 	public function getContentName()
 	{
-		return Yii::t('ActivityModule.activity', "Activity");
+		return Yii::t('base', "Activity");
 	}
 
 	public function afterSave( $insert, $changedAttributes ) {

@@ -108,6 +108,9 @@ class GalleryEditForm extends Model
         if(!$this->validate()) {
             return false;
         }
+        if(CustomGallery::find()->contentContainer($this->contentContainer)->readable()->count() > 50) {
+        	return false;
+        }
 
         $this->updateVisibility();
         return $this->instance->save();

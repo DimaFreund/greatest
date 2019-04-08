@@ -15,8 +15,8 @@ use yii\widgets\ActiveForm;
 <main>
     <section class="contacts">
         <div class="base-wrap">
-            <h1 class="base-lg-title">Contact Us</h1>
-            <div class="subtitle">If you have a quastions, please, contact us:</div>
+            <h1 class="base-lg-title"><?= Yii::t('base','Contact Us'); ?></h1>
+            <div class="subtitle"><?= Yii::t('base','If you have a quastions, please, contact us:'); ?></div>
         </div>
         <div class="contacts-form">
             <div class="base-wrap">

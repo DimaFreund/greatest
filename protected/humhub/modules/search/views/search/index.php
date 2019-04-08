@@ -15,15 +15,11 @@ humhub\modules\stream\assets\StreamAsset::register($this);
     <div class="content-wrap">
         <div class="general-search">
             <div class="search-header">
-                <div class="title">Your search</div>
+                <div class="title"><?= Yii::t('base','Your search'); ?></div>
                 <div class="search-form">
-	                <?php $form = ActiveForm::begin(['action' => Url::to(['index']), 'method' => 'GET', 'fieldConfig' => [
-		                'options' => [
-			                'tag' => false,
-		                ],
-	                ],]); ?>
+	                <?php $form = ActiveForm::begin(['action' => Url::to(['index']), 'method' => 'GET']); ?>
                     <div class="wrap">
-	                    <?= $form->field($model, 'keyword', ['errorOptions' => ['tag' => null]])->textInput([
+	                    <?= $form->field($model, 'keyword')->textInput([
 		                    'placeholder' => Yii::t('SearchModule.views_search_index', 'Search for user, spaces and content'),
 		                    'title' => Yii::t('SearchModule.views_search_index', 'Search for user, spaces and content'),
 		                    'id' => 'search-input-field',
@@ -32,14 +28,14 @@ humhub\modules\stream\assets\StreamAsset::register($this);
                     </div>
 	                <?php if ($model->keyword != "") { ?>
                     <div class="filters">
-                        <div class="filter-title">Search in categories:</div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_DESIRE , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_DESIRE ; ?>]" type="checkbox" id="1"><label for="1">Desires</label></div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_BLOG , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_BLOG ; ?>]" type="checkbox" id="2"><label for="2">Blogs</label></div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_NEWS , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_NEWS ; ?>]" type="checkbox" id="3"><label for="3">News</label></div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_POLL , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_POLL ; ?>]" type="checkbox" id="5"><label for="5">Polls</label></div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_SPACE , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_SPACE ; ?>]" type="checkbox" id="6"><label for="6">Groups</label></div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_USER , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_USER ; ?>]" type="checkbox" id="7"><label for="7">User</label></div>
-                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_POST , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_POST; ?>]" type="checkbox" id="7"><label for="7">Post</label></div>
+                        <div class="filter-title"><?= Yii::t('base','Search in categories'); ?>:</div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_DESIRE , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_DESIRE ; ?>]" type="checkbox" id="1"><label for="1"><?= Yii::t('base','Desires'); ?></label></div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_BLOG , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_BLOG ; ?>]" type="checkbox" id="2"><label for="2"><?= Yii::t('base','Blogs'); ?></label></div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_NEWS , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_NEWS ; ?>]" type="checkbox" id="3"><label for="3"><?= Yii::t('base','News'); ?></label></div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_POLL , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_POLL ; ?>]" type="checkbox" id="5"><label for="5"><?= Yii::t('base','Polls'); ?></label></div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_SPACE , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_SPACE ; ?>]" type="checkbox" id="6"><label for="6"><?= Yii::t('base','Groups'); ?></label></div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_USER , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_USER ; ?>]" type="checkbox" id="7"><label for="7"><?= Yii::t('base','User'); ?></label></div>
+                        <div class="category"><input <?php if(array_key_exists(SearchForm::SCOPE_POST , $model->scope)) echo 'checked'; ?> name="scope[<?= SearchForm::SCOPE_POST; ?>]" type="checkbox" id="8"><label for="8"><?= Yii::t('base','Post'); ?></label></div>
                     </div>
                     <?php } ?>
 

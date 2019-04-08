@@ -1293,7 +1293,15 @@ a.label-warning:hover{
 .regular-checkbox:checked+.regular-checkbox-box{
     border:2px solid #6fdbe8;
     background:#6fdbe8;
-    color:white
+    color:white;  
+}
+.regular-checkbox:checked+.regular-checkbox-box:before {
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: -3px;
+    left: 0px;
+    font-size: 14px;
+    content: "\f00c";
 }
 .regular-checkbox-box.disabled{
     background:#d7d7d7 !important;
@@ -1793,6 +1801,7 @@ table td a:hover{
     max-width:100%
 }
 .wall-entry .content img{
+    width: 250px;
     max-width:100%;
     height: auto;
 }
@@ -2000,13 +2009,16 @@ table td a:hover{
 .post-files{
     margin-top:10px
 }
-.post-files img { width: 100%; height: auto; margin-bottom: 10px; }
+
+.post-files img { width: 100%; height: auto; margin-bottom: 0px; }
+.post-files img:first-child { width: 100%; height: auto; margin-bottom: 1px; }
+
 .post-files a {
     font-size: 0;
 }
 #wallStream.mobile .post-files{
-    margin-top:10px;
-    display:flex;
+    /*margin-top:10px;*/
+    /*display:flex;*/
     overflow-x:auto
 }
 #wallStream.mobile .post-files img{
@@ -3066,3 +3078,26 @@ ul.tag_input li img{
 }
 .panel-body {padding: inherit;}
 #contentForm_message {display: none;}
+
+.post-files img { width: 100%; height: auto; margin-bottom: -3px; }
+
+.bottom ul.group-menu div.btn-group.dropdown-navigation ul.dropdown-menu {
+min-width: 303px;
+}
+
+.image-upload-buttons a {
+    background: gainsboro;
+}
+
+.create-blog .field-blog-category .jq-selectbox__select-text {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.jq-selectbox.focused .jq-selectbox__dropdown {
+    display: block !important;
+}
+
+.wall-entry .content img.emojione {
+    width: 32px;
+}

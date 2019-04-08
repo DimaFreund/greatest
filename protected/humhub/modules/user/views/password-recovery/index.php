@@ -10,7 +10,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_recoverPassword', 'Password rec
 	<?php $form = CActiveForm::begin(['id' => 'recovery-pass-form','enableClientValidation' => true]); ?>
 
     <div class="top">
-        <div class="title">Password recovery</div>
+        <div class="title"><?= Yii::t('base','Password recovery'); ?></div>
     </div>
     <div class="center-block"><span><?php echo Yii::t('UserModule.views_auth_recoverPassword', 'Just enter your e-mail address. We´ll send you recovery instructions!'); ?></span>
         <div class="form-item"><label for="email"><?= Yii::t('UserModule.views_auth_recoverPassword', 'your email'); ?></label>

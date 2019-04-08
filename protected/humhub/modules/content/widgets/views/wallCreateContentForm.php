@@ -21,7 +21,7 @@ $this->registerJsConfig( 'content.form', [
 
 <div class="timeline-post-form panel panel-default clearfix">
     <div class="panel-body" id="contentFormBody" style="display:none;" data-action-component="content.form.CreateForm">
-        <div class="title"><?= $contentTitle; ?> to Timeline</div>
+        <div class="title"><?= $contentTitle; ?> <?= Yii::t('base','to'); ?> <?= Yii::t('base','Timeline'); ?></div>
 		<?= Html::beginForm( $submitUrl, 'POST', [ 'class' => 'wrap' ] ); ?>
         <div class="user-img">
 	        <?=

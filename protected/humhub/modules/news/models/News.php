@@ -49,7 +49,7 @@ class News extends ContentActiveRecord implements Searchable
 
 	public static function objectName()
 	{
-		return 'news post';
+		return Yii::t('base','news post');
 	}
 
     /**

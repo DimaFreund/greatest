@@ -88,7 +88,7 @@ class AdminMenu extends \humhub\widgets\BaseMenu
             'isVisible' => Yii::$app->user->can(new \humhub\modules\admin\permissions\SeeAdminInformation())
         ]);
         $this->addItem([
-            'label' => Yii::t('AdminModule.widgets_AdminMenuWidget', 'Success stories'),
+            'label' => Yii::t('base', 'Success stories'),
             'url' => Url::toRoute('/admin/admin-desires'),
             'icon' => '<i class="fa fa-volume-up" aria-hidden="true"></i>',
             'sortOrder' => 12000,
@@ -130,6 +130,15 @@ class AdminMenu extends \humhub\widgets\BaseMenu
 		    'sortOrder' => 18000,
 		    'newItemCount' => 0,
 		    'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'admin' && Yii::$app->controller->id == 'category'),
+		    'isVisible' => Yii::$app->user->can(new \humhub\modules\admin\permissions\ManageSettings())
+	    ]);
+	    $this->addItem([
+		    'label' => Yii::t('AdminModule.widgets_AdminMenuWidget', 'Translate'),
+		    'url' => Url::toRoute(['/translation/translate', 'moduleId' => 'core', 'language' => 'es','file'=>'base']),
+		    'icon' => '<i class="fa fa-archive"></i>',
+		    'sortOrder' => 19000,
+		    'newItemCount' => 0,
+		    'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'translation' && Yii::$app->controller->id == 'translate'),
 		    'isVisible' => Yii::$app->user->can(new \humhub\modules\admin\permissions\ManageSettings())
 	    ]);
 

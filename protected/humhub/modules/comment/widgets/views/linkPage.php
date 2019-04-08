@@ -15,11 +15,11 @@
 	<svg class="icon icon-comments">
 		<use xlink:href="./svg/sprite/sprite.svg#comments"></use>
 	</svg>
-	<div class="text">Comment</div>
+	<div class="text"><?= Yii::t('base','Comment'); ?></div>
     <?php if($commentCount) { ?>
 	<div class="val">(<span><?= $commentCount; ?></span>)</div>
     <?php } ?>
-	<div class="tooltip-base">Leave a comment</div>
+	<div class="tooltip-base"><?= Yii::t('base','Leave a comment'); ?></div>
 </a>
 <?php } else { ?>
     <a class="comments" href="<?= $user->createUrl($url, ['id' => $object->id]); ?>#comments-block">

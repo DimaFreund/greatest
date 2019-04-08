@@ -44,6 +44,8 @@ class Desire extends ContentActiveRecord implements Searchable
 
 	public $verifyCode;
 
+	public $agreePrivacyPolicy;
+
     /**
      * @inheritdoc
      */
@@ -54,7 +56,7 @@ class Desire extends ContentActiveRecord implements Searchable
 
 	public static function objectName()
 	{
-		return 'desire';
+		return Yii::t('base','desire');
 	}
 
     /**
@@ -64,15 +66,16 @@ class Desire extends ContentActiveRecord implements Searchable
     {
     	$rules = [
 		    [['title'], 'required'],
-		    [['title'], 'string', 'min' => 10],
-		    [['message'], 'string'],
+		    [['title'], 'string', 'min' => 5, 'max' => 200],
+		    [['message'], 'string', 'max' => 8192],
 		    [['greatest'], 'integer'],
 		    [['url'], 'string', 'max' => 255]
 	    ];
     	if(Yii::$app->user->isGuest) {
     		$rules = array_merge($rules,[
 			    [['verifyCode'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6Lcs6ocUAAAAAELD0dVC1Kw5vFmufLK2I4xxDC5t'],
-		    ]);
+				[['agreePrivacyPolicy'], 'required', 'requiredValue' => 1, 'message' => 'You must agree to our terms']
+		     ]);
 	    }
         return $rules;
     }
@@ -175,8 +178,8 @@ class Desire extends ContentActiveRecord implements Searchable
 	public function attributeLabels()
 	{
 		return [
-			'title' => Yii::t('DesireModule.forms_create', 'My Desire is...'),
-			'message' => Yii::t('DesireModule.forms_create', 'Description'),
+			'title' => Yii::t('base', 'My Desire is') . '..',
+			'message' => Yii::t('base', 'Description'),
 			'greatest' => Yii::t('DesireModule.forms_create', 'Make it Greatest!'),
 
 		];

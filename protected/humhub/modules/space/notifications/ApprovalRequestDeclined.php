@@ -51,7 +51,7 @@ class ApprovalRequestDeclined extends BaseNotification
      */
     public function html()
     {
-        return Yii::t('SpaceModule.notification', '{displayName} declined your membership request for the space {spaceName}', array(
+        return Yii::t('SpaceModule.notification', '{displayName} declined your membership request for the group {spaceName}', array(
                     '{displayName}' => Html::tag('strong', Html::encode($this->originator->displayName)),
                     '{spaceName}' => Html::tag('strong', Html::encode($this->source->name))
         ));

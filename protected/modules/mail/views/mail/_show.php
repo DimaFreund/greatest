@@ -2,6 +2,7 @@
 
 use humhub\modules\file\handler\FileHandlerCollection;
 use humhub\modules\file\widgets\ShowFiles;
+use humhub\modules\file\widgets\ShowPhotoPreview;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use humhub\widgets\ModalConfirm;
@@ -122,7 +123,14 @@ use humhub\compat\CActiveForm;
                                 <?= humhub\widgets\RichText::widget(['text' => $entry->content, 'record' => $entry, 'markdown' => true]) ?>
                             </span>
                         <div class="attach-content">
-	                        <?= ShowFiles::widget(['object' => $entry]); ?>
+	                        <?= ShowPhotoPreview::widget( [
+		                        'object'  => $entry,
+		                        'options' => [
+			                        'width'  => 400,
+			                        'height' => 270,
+			                        'index'  => 0
+		                        ]
+	                        ] ); ?>
                         </div>
                     </div>
                 </div>

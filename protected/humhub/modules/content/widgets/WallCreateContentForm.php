@@ -100,7 +100,7 @@ class WallCreateContentForm extends Widget
                     'defaultVisibility' => $defaultVisibility,
                     'canSwitchVisibility' => $canSwitchVisibility,
                     'fileHandlers' => array_merge($fileHandlerCreate, $fileHandlerImport),
-	                'contentTitle' => $this->contentTitle,
+	                'contentTitle' => Yii::t('base',$this->contentTitle),
         ));
     }
 

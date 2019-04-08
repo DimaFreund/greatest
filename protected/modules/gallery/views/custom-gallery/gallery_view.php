@@ -3,7 +3,7 @@
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2015 HumHub GmbH & Co. KG
  * @license https://www.humhub.com/licences
- * 
+ *
  * @package humhub.modules.gallery.views
  * @since 1.0
  * @author Sebastian Stumpf
@@ -25,7 +25,7 @@ $bundle = Assets::register($this);
 
     <div class="panel-heading clearfix" style="background-color: <?= $this->theme->variable('background-color-secondary') ?>">
         <div style="margin-right:40px;" class="pull-left">
-            <?= Yii::t('GalleryModule.base', '<strong>Gallery</strong> ') . Html::encode($gallery->title); ?>
+            <strong><?= Yii::t('base', 'Gallery'); ?> </strong> <?= Html::encode($gallery->title); ?>
         </div>
 
         <?= \humhub\modules\gallery\widgets\GalleryMenu::widget(['gallery' => $gallery,
@@ -50,7 +50,7 @@ $bundle = Assets::register($this);
                     <span class="label label-info"><?= Yii::t('base', 'Public');?></span>
                 <?php endif; ?>
                 <a class="btn btn-default btn-sm pull-right" data-ui-loader href="<?= $this->context->contentContainer->createUrl('/gallery/list') ?>">
-                    <i class="glyphicon glyphicon-arrow-left"></i> <?= Yii::t('GalleryModule.base', 'Back to overview') ?>
+                    <i class="glyphicon glyphicon-arrow-left"></i> <?= Yii::t('base', 'Back to overview') ?>
                 </a>
             </div>
         </div>

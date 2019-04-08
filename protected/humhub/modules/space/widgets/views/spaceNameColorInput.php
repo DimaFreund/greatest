@@ -18,5 +18,5 @@
             {input}
         </div>
         {error}{hint}'
-        ])->textInput(['placeholder' => Yii::t('SpaceModule.views_create_create', 'Space name'), 'maxlength' => 45 ]) ?>
+        ])->textInput(['placeholder' => Yii::t('base', 'Group name'), 'maxlength' => 45 ]) ?>
 </div>

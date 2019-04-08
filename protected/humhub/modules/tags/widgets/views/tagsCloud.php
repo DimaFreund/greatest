@@ -26,17 +26,17 @@ use yii\helpers\Url;
 			    'tag' => false,
 		    ],
 	    ],]); ?>
-        <p>Find your like-minded people</p>
+        <p><?= Yii::t('base','Find your like-minded people'); ?></p>
         <div class="form-wrap">
 		    <?= $form->field($model, 'keyword', ['errorOptions' => ['tag' => null]])->textInput([
-			    'placeholder' => 'Desire keywords',
-			    'title' => 'Desire keywords',
+			    'placeholder' => Yii::t('base','Desire keywords'),
+			    'title' => Yii::t('base','Desire keywords'),
 			    'class' => false,
 			    'id' => 'search-input-field',
 			    'onkeypress' => 'return generateTips(event)',
 			    'autocomplete' => 'off',
 		    ])->label(false); ?>
-            <input type="submit" value="Search">
+            <input type="submit" value="<?= Yii::t('base','Search'); ?>">
         </div>
 	    <?php ActiveForm::end(); ?>
     </div>

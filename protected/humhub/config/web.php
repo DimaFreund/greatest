@@ -23,7 +23,7 @@ $config = [
             'class' => 'humhub\modules\user\components\User',
             'identityClass' => 'humhub\modules\user\models\User',
             'enableAutoLogin' => true,
-            'authTimeout' => 1400,
+            'authTimeout' => 14000,
             'loginUrl' => ['/user/auth/login']
         ],
         'errorHandler' => [

@@ -70,7 +70,7 @@ class Password extends \yii\db\ActiveRecord
         return [
             [['newPassword', 'newPasswordConfirm'], 'required', 'on' => 'registration'],
             [['newPassword', 'newPasswordConfirm'], 'trim'],
-	        ['newPassword', 'match', 'pattern' => '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,24}$/', 'message' => 'Your password must be at least 8 characters long, be of mixed case and also contain a digit.'],
+	        ['newPassword', 'match', 'pattern' => '/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,25}$/', 'message' => 'Your password must be at least 8 characters long, be of mixed case and also contain a digit.'],
             [['user_id'], 'integer'],
             [['password', 'salt'], 'string'],
             [['created_at'], 'safe'],

@@ -10,8 +10,8 @@
 	<div class="content-wrap">
 		<div class="polls-page">
 			<div class="polls-page-header">
-				<div class="title">Polls</div>
-				<div class="stat"><?= $count; ?> polls</div></div>
+				<div class="title"><?= Yii::t('base','Polls'); ?></div>
+				<div class="stat"><?= $count; ?> <?= Yii::t('base','polls'); ?></div></div>
 			<?php
 
 

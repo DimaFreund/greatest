@@ -11,7 +11,7 @@ use yii\helpers\Url;
 ?>
 
 <?php if($count > count($object)) { ?>
-	<div class="base-btn"><a data-offset="<?= count($object); ?>" id="load-more-button">Load more</a></div>
+	<div class="base-btn"><a data-offset="<?= count($object); ?>" id="load-more-button"><?= Yii::t('base','Load more'); ?></a></div>
 <?php } ?>
 
 

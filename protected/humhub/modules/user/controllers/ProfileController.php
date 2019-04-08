@@ -325,6 +325,7 @@ class ProfileController extends ContentContainerController
 		];
 		$file = File::findOne(['object_id' => $photo->id, 'object_model' => $photo::className()]);
 		$photoPreview->applyFile($file);
+	    $contentContainer = Yii::$app->controller->contentContainer;
 
     	return $this->render('photoOne', [
 			'photo' => $photo,
@@ -334,6 +335,13 @@ class ProfileController extends ContentContainerController
 		    'urlNext' => $nextPhotoUrl,
 		    'urlPrev' => $prevPhotoUrl,
 		    'uiGalleryId' => "GalleryModule-Gallery-" . $album->id,
+			'wallUrl' => $photo->getWallUrl(),
+			'deleteUrl' => $contentContainer->createUrl('/gallery/custom-gallery/delete-multiple', ['openGalleryId' => $album->id, 'itemId' => $photo->getItemId()]),
+			'editUrl' => $contentContainer->createUrl('/gallery/media/edit', ['openGalleryId' => $album->id, 'itemId' => $photo->getItemId()]),
+			'downloadUrl' =>$photo->getFileUrl(true),
+			'fileUrl' => $photo->getFileUrl(),
+			'thumbnailUrl' => $photo->getSquarePreviewImageUrl(),
+			'writeAccess' => $photo->content->canEdit(),
 	    ]);
     }
 

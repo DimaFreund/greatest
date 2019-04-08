@@ -10,7 +10,7 @@
 	<div class="personal-profile-photos comments-node">
 		<ul class="small-tabs-controls">
 			<li><a href="<?= $this->context->contentContainer->createUrl('/user/profile/photo-albums'); ?>">Gallery</a></li>
-			<li class="active"><a href="<?= $this->context->contentContainer->createUrl('/user/profile/favorite-photos'); ?>">Favorite photos</a></li>
+			<li class="active"><a href="<?= $this->context->contentContainer->createUrl('/user/profile/favorite-photos'); ?>"><?= Yii::t('base','Favorite photos'); ?></a></li>
 		</ul>
 
 		<div class="albums-img-layout">

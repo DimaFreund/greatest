@@ -13,8 +13,8 @@ use yii\helpers\Url;
 <div class="content-wrap">
 	<div class="personal-profile-blog">
         <ul class="small-tabs-controls">
-			<li class="<?= ($this->context->action->id === 'blog')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/blog'); ?>">Blog posts</a></li>
-			<li class="<?= ($this->context->action->id === 'favorite-blog')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/favorite-blog'); ?>">Favorite blog posts</a></li>
+			<li class="<?= ($this->context->action->id === 'blog')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/blog'); ?>"><?= Yii::t('base','Blog posts'); ?></a></li>
+			<li class="<?= ($this->context->action->id === 'favorite-blog')? 'active': ''; ?>"><a href="<?= $contentContainer->createUrl('/user/profile/favorite-blog'); ?>"><?= Yii::t('base','Favorite blog posts'); ?></a></li>
 		</ul>
         <?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $blogList]); ?>
 		<div class="blog-post-list">

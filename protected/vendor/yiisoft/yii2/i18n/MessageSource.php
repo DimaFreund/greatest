@@ -7,8 +7,10 @@
 
 namespace yii\i18n;
 
+use humhub\libs\CURLHelper;
 use Yii;
 use yii\base\Component;
+use yii\db\Exception;
 
 /**
  * MessageSource is the base class for message translation repository classes.
@@ -106,7 +108,7 @@ class MessageSource extends Component
         if (!isset($this->_messages[$key])) {
             $this->_messages[$key] = $this->loadMessages($category, $language);
         }
-        if (isset($this->_messages[$key][$message]) && $this->_messages[$key][$message] !== '') {
+        if (isset($this->_messages[$key][$message]) && $this->_messages[$key][$message] != '') {
             return $this->_messages[$key][$message];
         } elseif ($this->hasEventHandlers(self::EVENT_MISSING_TRANSLATION)) {
             $event = new MissingTranslationEvent([
@@ -120,6 +122,41 @@ class MessageSource extends Component
             }
         }
 
+        if((isset(Yii::$app->controller->id) && Yii::$app->controller->id != 'translate' && Yii::$app->user->id == 1 && $language != 'en-US')) { //TODO Important remove before production
+	        $messages             = $this->_messages[ $key ];
+//	        try {
+//	        	$url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=$language&dt=t&q=" . urlencode($message);
+////	        	$result = file_get_contents($url);
+//
+//		        $http = new \Zend\Http\Client($url, [
+//			        'adapter' => '\Zend\Http\Client\Adapter\Curl',
+//			        'curloptions' => CURLHelper::getOptions(),
+//			        'timeout' => 30
+//		        ]);
+//
+//		        $response = $http->send();
+//		        $result = $response->getBody();
+//
+//				$result = json_decode($result);
+//	        	$translate = $result[0][0][0];
+//	        } catch (Exception $e) {
+//	        	$translate = '';
+//	        }
+	        $translate = "";
+	        $messages[ $message ] = $translate;
+	        asort( $messages );
+	        $array   = str_replace( "\r", '', var_export( $messages, true ) );
+	        $file    = $this->getMessageFilePath( $category, $language );
+	        $content = <<<EOD
+<?php
+return $array;
+
+EOD;
+
+	        file_put_contents( $file, $content );
+
+        }
+//        return '----';
         return $this->_messages[$key][$message] = false;
     }
 }

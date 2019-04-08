@@ -44,7 +44,7 @@ class Post extends ContentActiveRecord implements Searchable
 
 	public static function objectName()
 	{
-		return 'post'; //TODO translate;
+		return Yii::t('base','post');
 	}
     /**
      * @inheritdoc
@@ -55,7 +55,7 @@ class Post extends ContentActiveRecord implements Searchable
             [['message'], 'required', 'when' => function($model) {
 	            return empty(Yii::$app->request->post('fileList'));
             }, 'message' => 'Client group or client selection is required'],
-            [['message'], 'string'],
+            [['message'], 'string', 'max' => 8192],
             [['url'], 'string', 'max' => 255]
         ];
     }

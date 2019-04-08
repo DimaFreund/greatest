@@ -18,3 +18,9 @@ humhub.module('gallery', function (module, require, $) {
         init: init,
     });
 });
+
+$( document ).ready(function() {
+$("html, body").animate({
+            scrollTop: $('.user-info-menu').offset().top,
+        }, 1);
+});

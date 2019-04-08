@@ -42,7 +42,7 @@ class GalleryListEntryAdd extends Widget
 
         if ($this->parentGallery) {
             return $this->render('galleryListEntryAdd', [
-                        'title' => Yii::t('GalleryModule.base', 'Click or drop files here'),
+                        'title' => Yii::t('base', 'Click or drop files here'),
                         'addActionUrl' => '#',
                         'htmlOptions' => [
                             'data' => [
@@ -53,7 +53,7 @@ class GalleryListEntryAdd extends Widget
             ]);
         } else {
             return $this->render('galleryListEntryAdd', [
-                        'title' => Yii::t('GalleryModule.base', 'Click here to add new Gallery'),
+                        'title' => Yii::t('base', 'Click here to add new Gallery'),
                         'addActionUrl' => $contentContainer->createUrl('/gallery/custom-gallery/edit'),
                         'htmlOptions' => [
                             'data' => [

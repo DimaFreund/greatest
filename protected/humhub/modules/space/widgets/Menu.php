@@ -35,12 +35,12 @@ class Menu extends \humhub\widgets\BaseMenu
 
         $this->addItemGroup(array(
             'id' => 'modules',
-            'label' => Yii::t('SpaceModule.widgets_SpaceMenuWidget', '<strong>Space</strong> menu'),
+            'label' => Yii::t('base', '<strong>Space</strong> menu'),
             'sortOrder' => 100,
         ));
 
         $this->addItem(array(
-            'label' => Yii::t('SpaceModule.widgets_SpaceMenuWidget', 'Timeline'),
+            'label' => Yii::t('base', 'Timeline'),
             'group' => 'modules',
             'url' => $this->space->createUrl('/space/space/home'),
             'icon' => '<i class="fa fa-bars"></i>',
@@ -48,7 +48,7 @@ class Menu extends \humhub\widgets\BaseMenu
             'isActive' => (Yii::$app->controller->id == "space" && (Yii::$app->controller->action->id == "index" || Yii::$app->controller->action->id == 'home') && Yii::$app->controller->module->id == "space"),
         ));
         $this->addItem(array(
-            'label' => Yii::t('SpaceModule.widgets_SpaceMenuWidget', 'Members'),
+            'label' => Yii::t('base', 'Members'),
             'group' => 'modules',
             'url' => $this->space->createUrl('/space/membership/members-list'),
             'icon' => '<i class="fa fa-bars"></i>',

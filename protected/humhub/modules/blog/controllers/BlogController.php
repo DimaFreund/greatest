@@ -43,7 +43,7 @@ class BlogController extends GeneralController {
 		$filter = Yii::$app->request->get('Category')['filter'];
 		$isSuccessStories = ($filter && $filter[0] && count($filter) === 1 && $filter[0] == '100')?true:false;
 
-		$title = $isSuccessStories?'Success stories':'Blog';
+		$title = $isSuccessStories?Yii::t('base', 'Success stories'):Yii::t('base','Blog');
 
 		return $this->render('list', [
 			'articles' => $data['blog'],

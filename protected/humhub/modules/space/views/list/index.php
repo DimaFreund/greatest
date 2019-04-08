@@ -11,8 +11,8 @@
 	<div class="content-wrap">
 		<div class="groups-page">
 			<div class="groups-page-header">
-				<div class="title">Groups</div>
-				<div class="stat"><?= $count; ?> Groups</div>
+				<div class="title"><?= Yii::t('base','Groups'); ?></div>
+				<div class="stat"><?= $count; ?> <?= Yii::t('base','Groups'); ?></div>
                 <div class="filters">
 				<?= \humhub\modules\content\widgets\CategorySelectFilter::widget(['model' => Yii::$app->controller->module->id]); ?>
 				<?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $spaces]); ?>

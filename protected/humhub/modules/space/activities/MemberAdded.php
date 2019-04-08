@@ -45,7 +45,7 @@ class MemberAdded extends BaseActivity implements ConfigurableActivityInterface
      */
     public function getTitle()
     {
-        return Yii::t('SpaceModule.activities', 'Space member joined');
+        return Yii::t('SpaceModule.activities', 'Group member joined');
     }
 
     /**
@@ -53,7 +53,7 @@ class MemberAdded extends BaseActivity implements ConfigurableActivityInterface
      */
     public function getDescription()
     {
-        return Yii::t('SpaceModule.activities', 'Whenever a new member joined one of your spaces.');
+        return Yii::t('SpaceModule.activities', 'Whenever a new member joined one of your groups.');
     }
 
 

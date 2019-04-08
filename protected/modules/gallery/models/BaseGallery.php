@@ -39,7 +39,7 @@ class BaseGallery extends ContentActiveRecord
 
     public static function objectName()
     {
-    	return 'albums';
+    	return Yii::t('base','albums');
     }
 
     /**

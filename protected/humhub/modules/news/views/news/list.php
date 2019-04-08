@@ -13,8 +13,8 @@ use humhub\modules\comment\widgets\Comments;
     <div class="content-wrap">
         <div class="polls-page">
             <div class="polls-page-header">
-                <div class="title">News</div>
-                <div class="stat"><?= $count; ?> news</div></div>
+                <div class="title"><?= Yii::t('base','News'); ?></div>
+                <div class="stat"><?= $count; ?> <?= Yii::t('base','News'); ?></div></div>
 			<?php
 
 
@@ -22,11 +22,11 @@ use humhub\modules\comment\widgets\Comments;
 			echo \humhub\modules\stream\widgets\StreamViewer::widget(array(
 				'streamAction' => '/news/news/streamPublic',
 				'messageStreamEmpty' =>
-					Yii::t('PollsModule.widgets_views_stream', '<b>There are no polls yet!</b><br>Be the first and create one...'),
+					Yii::t('PollsModule.widgets_views_stream', '<b>There are no news yet!</b><br>Be the first and create one...'),
 				'messageStreamEmptyCss' => 'placeholder-empty-stream',
 				'filters' => [
-					'filter_visibility_public' => Yii::t('PollsModule.widgets_views_stream', 'Only public news'),
-					'filter_visibility_private' => Yii::t('PollsModule.widgets_views_stream', 'Only private news')
+					'filter_visibility_public' => Yii::t('base', 'Only public news'),
+					'filter_visibility_private' => Yii::t('base', 'Only private news')
 				]
 			));
 			?>

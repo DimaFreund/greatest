@@ -10,7 +10,7 @@ humhub\modules\sharebetween\assets\ShareAsset::register($this);
     <svg class="icon icon-share">
         <use xlink:href="./svg/sprite/sprite.svg#share"></use>
     </svg>
-    <div class="text">Share</div>
+    <div class="text"><?= Yii::t('base', 'Share'); ?></div>
     <div class="val shareCount">
 	    <?php if ($count > 0) {
 		    echo ' (' . $count . ')';

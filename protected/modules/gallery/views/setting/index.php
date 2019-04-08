@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
     </div>
     <div class="panel-body">
             <a class="btn btn-default btn-sm pull-right" data-ui-loader href="<?= $this->context->contentContainer->createUrl('/gallery/list') ?>">
-                <i class="glyphicon glyphicon-arrow-left"></i> <?= Yii::t('GalleryModule.base', 'Back to overview') ?>
+                <i class="glyphicon glyphicon-arrow-left"></i> <?= Yii::t('base', 'Back to overview') ?>
             </a>
         <br />
         <?php if($settings->hasGallery()) : ?>

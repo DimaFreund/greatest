@@ -42,7 +42,7 @@ class MessageSource extends \yii\i18n\PhpMessageSource
      *
      * Change: Don't show warning if message file don't exists
      */
-    protected function loadMessages($category, $language)
+    public function loadMessages($category, $language)
     {
         $messageFile = $this->getMessageFilePath($category, $language);
         $messages = $this->loadMessagesFromFile($messageFile);

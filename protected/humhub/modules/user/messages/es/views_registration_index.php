@@ -1,0 +1,27 @@
+<?php
+return [
+'Discover more about network' => 'Discubra más sobre la red',
+'Privacy policy' => 'Política de privacidad',
+'Terms and Conditions' => 'Términos y Condiciones',
+'Write your Greatest Desire' => 'Escriba su Deseo Más Grande',
+'Your desire will be the main criterion of search' => 'Su deseo será el criterio principal de búsqueda',
+'My Desire is...' => 'Mi Deseo es…',
+'Add tags to your desire. They will be the main tool for finding like-minded people.' => 'Añada tags a su deseo. Serán la herramienta principal para encontrar gente similar.',
+'My Greatest Desire is…' => 'Mi Deseo Más Grande es…',
+'Сontinue with registration' => 'Continuar el registro',
+'Log In with Facebook' => 'Iniciar sesión con Facebook',
+'Log In with Google' => 'Iniciar sesión con Google',
+'or Sign up with your email address' => 'o Regístrese con su dirección de correo electrónico',
+'Username' => 'Nombre de usuario',
+'Choose a Username wich will be used for logging in to the site' => 'Elija un Nombre de usuario que será usado para iniciar sesión en el sitio',
+'Email' => 'Correo electrónico',
+'Enter your E-mail. Your password will be sent to this e-mail' => 'Introduzca su Correo electrónico. Su contraseña será enviada a este correo electrónico',
+'New password' => 'Contraseña nueva',
+'Choose a Password' => 'Elija una Contraseña',
+'Confirm new password' => 'Confirmar la nueva contraseña',
+'Enter the same Password here' => 'Introduzca la misma Contraseña aquí',
+'By clicking on Sign up, you agree to our' => 'Haciendo clic en Registrarse, usted acepta nuestros y la',
+'Continue' => 'Continuar',
+'Already have an account?' => '¿Ya tiene una cuenta? Inicie sesión',
+
+];

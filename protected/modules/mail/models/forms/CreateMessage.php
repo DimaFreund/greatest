@@ -31,7 +31,8 @@ class CreateMessage extends Model
     {
         return array(
             array(['recipient'], 'required'),
-            array('recipient', 'checkRecipient')
+            array('recipient', 'checkRecipient'),
+	         array(['message'], 'string', 'max' => 64000)
         );
     }
 

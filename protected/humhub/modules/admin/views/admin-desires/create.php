@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\AdminDesires */
 
-$this->title = 'Create Success stories';
+$this->title = Yii::t('base', 'Create').' '.Yii::t('base', 'Success stories');
 $this->params['breadcrumbs'][] = ['label' => 'Admin Desires', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

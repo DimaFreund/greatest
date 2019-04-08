@@ -22,7 +22,7 @@ use yii\helpers\Url;
         <?php }  } ?>
 		<div class="item" id="sidebar-info">
 			<div class="item-header">
-				<div class="label">Info
+				<div class="label"><?= Yii::t('base', 'Info'); ?>
 					<div class="marker"></div>
 				</div>
 			</div>
@@ -31,13 +31,13 @@ use yii\helpers\Url;
                     <?php
                     if(isset($userInfo->gender)) { ?>
 					<div class="gender">
-						<div class="label">Gender</div>
+						<div class="label"><?= Yii::t('base', 'Gender'); ?></div>
 						<div class="text"><?= $userInfo->gender; ?></div>
 					</div>
                     <?php } ?>
                     <?php if(isset($userInfo->city)) { ?>
 					<div class="place">
-						<div class="label">From</div>
+						<div class="label"><?= Yii::t('base', 'From'); ?></div>
 						<div class="text">
 							<svg class="icon icon-location">
 								<use xlink:href="./svg/sprite/sprite.svg#location"></use>
@@ -48,17 +48,17 @@ use yii\helpers\Url;
                     <?php } ?>
                     <?php if(isset($userInfo->age)) { ?>
 					<div class="age">
-						<div class="label">Age</div>
+						<div class="label"><?= Yii::t('base', 'Age'); ?></div>
 						<div class="text"><?= $userInfo->age; ?></div>
 					</div>
                     <?php } ?>
 				</div>
-				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/about'); ?>">Read more</a></div>
+				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/about'); ?>"><?= Yii::t('base', 'Read more'); ?></a></div>
 			</div>
 		</div>
 		<div class="item sidebar-friends-layout" id="sidebar-friends">
 			<div class="item-header">
-				<div class="label">Friends
+				<div class="label"><?= Yii::t('base', 'Friends'); ?>
 					<div class="marker"></div>
 				</div>
 			</div>
@@ -86,12 +86,12 @@ use yii\helpers\Url;
 					</li>
                     <?php } ?>
 				</ul>
-				<div class="moreItem"><a href="<?= $user->createUrl('/friendship/manage/list', ['id' => $user->id]); ?>">View all</a></div>
+				<div class="moreItem"><a href="<?= $user->createUrl('/friendship/manage/list', ['id' => $user->id]); ?>"><?= Yii::t('base', 'View all'); ?></a></div>
 			</div>
 		</div>
 		<div class="item sidebar-blog-layout" id="sidebar-blog-post">
 			<div class="item-header">
-				<div class="label">Latest blog posts
+				<div class="label"><?= Yii::t('base', 'Latest blog posts'); ?>
 					<div class="marker"></div>
 				</div>
 			</div>
@@ -120,12 +120,12 @@ use yii\helpers\Url;
 					</li>
                     <?php } ?>
 				</ul>
-				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/blog'); ?>">Read all</a></div>
+				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/blog'); ?>"><?= Yii::t('base', 'Read all'); ?></a></div>
 			</div>
 		</div>
 		<div class="item" id="sidebar-latest-photos">
 			<div class="item-header">
-				<div class="label">Latest photos
+				<div class="label"><?= Yii::t('base', 'Latest photos'); ?>
 					<div class="marker"></div>
 				</div>
 			</div>
@@ -135,12 +135,12 @@ use yii\helpers\Url;
 					    <li class="photo"><a href="<?= $user->createUrl('/user/profile/photo-one', ['id' => $item->id]) ?>"><img src="<?= $item->getSquarePreviewImageUrl(); ?>"></a></li>
 					<?php } ?>
 				</ul>
-				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/photo-albums'); ?>">View all</a></div>
+				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/photo-albums'); ?>"><?= Yii::t('base', 'View all'); ?></a></div>
 			</div>
 		</div>
 		<div class="item" id="sidebar-groups">
 			<div class="item-header">
-				<div class="label">Groups
+				<div class="label"><?= Yii::t('base', 'Groups'); ?>
 					<div class="marker"></div>
 				</div>
 			</div>
@@ -166,12 +166,12 @@ use yii\helpers\Url;
 					</li>
                     <?php } ?>
 				</ul>
-				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/space-membership-list'); ?>">View all</a></div>
+				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/space-membership-list'); ?>"><?= Yii::t('base', 'View all'); ?></a></div>
 			</div>
 		</div>
 		<div class="item" id="sidebar-polls">
 			<div class="item-header">
-				<div class="label">Polls
+				<div class="label"><?= Yii::t('base', 'Polls'); ?>
 					<div class="marker"></div>
 				</div>
 			</div>
@@ -190,16 +190,16 @@ use yii\helpers\Url;
                 </div>
                 <?php } ?>
 
-				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/polls'); ?>">View all</a></div>
+				<div class="moreItem"><a href="<?= $user->createUrl('/user/profile/polls'); ?>"><?= Yii::t('base', 'View all'); ?></a></div>
 			</div>
 		</div>
         <div class="sidebar-footer">
-            <div class="footer-item"><a href="<?= Url::toRoute('/'); ?>"><svg class="icon icon-members"><use xlink:href="./svg/sprite/sprite.svg#members"></use></svg><?= $statistic['members']; ?> Members</a></div>
-            <div class="footer-item"><a href="<?= Url::toRoute('/blog/blog'); ?>"><svg class="icon icon-blogs"><use xlink:href="./svg/sprite/sprite.svg#blogs"></use></svg><?= $statistic['blogs']; ?> Blogs</a></div>
-            <div class="footer-item"><a href="<?= Url::toRoute('/polls/list'); ?>"><svg class="icon icon-polls"><use xlink:href="./svg/sprite/sprite.svg#polls"></use></svg><?= $statistic['polls']; ?> Polls</a></div>
-            <div class="footer-item"><a href="<?= Url::toRoute('/news/news'); ?>"><svg class="icon icon-news"><use xlink:href="./svg/sprite/sprite.svg#news"></use></svg><?= $statistic['news']; ?> News</a></div>
-            <div class="footer-item"><a href="<?= Url::toRoute('/space/list'); ?>"><svg class="icon icon-groups"><use xlink:href="./svg/sprite/sprite.svg#groups"></use></svg><?= $statistic['groups']; ?> Groups</a></div>
-            <div class="footer-item"><a href="<?= Url::toRoute('/gallery/gallery'); ?>"><svg class="icon icon-photos"><use xlink:href="./svg/sprite/sprite.svg#photos"></use></svg><?= $statistic['photos']; ?> Photos</a></div>
+            <div class="footer-item"><a href="<?= Url::toRoute('/'); ?>"><svg class="icon icon-members"><use xlink:href="./svg/sprite/sprite.svg#members"></use></svg><?= $statistic['members']; ?> <?= Yii::t('base', 'Members'); ?></a></div>
+            <div class="footer-item"><a href="<?= Url::toRoute('/blog/blog'); ?>"><svg class="icon icon-blogs"><use xlink:href="./svg/sprite/sprite.svg#blogs"></use></svg><?= $statistic['blogs']; ?> <?= Yii::t('base', 'Blogs'); ?></a></div>
+            <div class="footer-item"><a href="<?= Url::toRoute('/polls/list'); ?>"><svg class="icon icon-polls"><use xlink:href="./svg/sprite/sprite.svg#polls"></use></svg><?= $statistic['polls']; ?> <?= Yii::t('base', 'Polls'); ?></a></div>
+            <div class="footer-item"><a href="<?= Url::toRoute('/news/news'); ?>"><svg class="icon icon-news"><use xlink:href="./svg/sprite/sprite.svg#news"></use></svg><?= $statistic['news']; ?> <?= Yii::t('base', 'News'); ?></a></div>
+            <div class="footer-item"><a href="<?= Url::toRoute('/space/list'); ?>"><svg class="icon icon-groups"><use xlink:href="./svg/sprite/sprite.svg#groups"></use></svg><?= $statistic['groups']; ?> <?= Yii::t('base', 'Groups'); ?></a></div>
+            <div class="footer-item"><a href="<?= Url::toRoute('/gallery/gallery'); ?>"><svg class="icon icon-photos"><use xlink:href="./svg/sprite/sprite.svg#photos"></use></svg><?= $statistic['photos']; ?> <?= Yii::t('base', 'Photos'); ?></a></div>
         </div>
 	</div>
 </aside>

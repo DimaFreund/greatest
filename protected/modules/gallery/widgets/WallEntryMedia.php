@@ -11,6 +11,7 @@ namespace humhub\modules\gallery\widgets;
 use humhub\modules\file\converter\PreviewImage;
 use humhub\modules\gallery\models\Media;
 use humhub\libs\MimeHelper;
+use Yii;
 
 /**
  * Widget that renders the Wallentry for a Media file.
@@ -44,7 +45,7 @@ class WallEntryMedia extends \humhub\modules\content\widgets\WallEntry
 	    $groupPhotos->where(['guid' => $this->contentObject->guid]);
 	    $groupPhotos = $groupPhotos->all();
 		$galleryUrl = '#';
-		$this->userAction = 'added ' . count($groupPhotos) . ' new photos to album';
+		$this->userAction = Yii::t('base','added {count} new photos to album', ['count' => count($groupPhotos)]);
         $galleryName = null;
         if ($media->parentGallery !== null) {
             $galleryUrl = $media->parentGallery->getUrl();

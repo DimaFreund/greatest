@@ -27,7 +27,7 @@ foreach($articles as $article) { ?>
 				</div>
 			</div>
 		</div>
-		<div class="footer">d
+		<div class="footer">
 			<?= \humhub\modules\content\widgets\BottomPanelContent::widget(['object' => $article]); ?>
 		</div>
 

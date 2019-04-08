@@ -92,4 +92,5 @@ return [
     'Upload file' => 'Carica file',
     'User not found!' => 'Utente non trovato!',
     'You are not allowed to run this action.' => 'Non hai i permessi per questa azione.',
+
 ];

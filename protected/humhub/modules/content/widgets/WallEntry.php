@@ -281,7 +281,7 @@ class WallEntry extends Widget
 	        'showHeader' => $this->showHeader,
             'createdAt' => $createdAt,
             'updatedAt' => $updatedAt,
-	        'userAction' => (isset($this->userAction))?$this->userAction:'',
+	        'userAction' => (isset($this->userAction))? Yii::t('base',$this->userAction):'',
 	        'actionName' => $this->createActivityName(),
         ];
     }

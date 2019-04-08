@@ -12,7 +12,7 @@ use yii\helpers\Html;
 
 <div class="content-wrap">
 	<div class="profile-groups">
-		<div class="title">Groups </div>
+		<div class="title"><?= Yii::t('base','Groups'); ?> </div>
 		<ul class="groups-list">
 			<?php if (count($spaces) === 0): ?>
                     <p><?php echo Yii::t('SpaceModule.base', 'No spaces found.'); ?></p>

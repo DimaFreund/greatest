@@ -1,12 +1,13 @@
 <?php
 return array (
-  '<strong>Information</strong>' => '<strong>Información</strong>',
+  '<strong>Category</strong>' => '',
   '<strong>Settings</strong> and Configuration' => '<strong>Ajustes</strong> y Configuración',
+  '<strong>Information</strong>' => '<strong>Información</strong>',
   '<strong>User</strong> administration' => 'Administración de <strong>Usuarios</strong>',
-  'Add new group' => 'Agregar un nuevo grupo',
-  'Groups' => 'Grupos',
   'Manage group: {groupName}' => 'Administrar grupo: {groupName}',
-  'Overview' => 'Resumen',
+  'Add new group' => 'Agregar un nuevo grupo',
   'Pending approvals' => 'Aprobaciones pendientes',
+  'Groups' => 'Grupos',
   'Profiles' => 'Perfiles',
+  'Overview' => 'Resumen',
 );

@@ -31,7 +31,7 @@ class MemberRemoved extends BaseActivity implements ConfigurableActivityInterfac
     public $moduleId = "space";
 
 
-    public $userAction = "left the space";
+    public $userAction = "left the group";
 
     /**
      * @inheritdoc
@@ -47,7 +47,7 @@ class MemberRemoved extends BaseActivity implements ConfigurableActivityInterfac
      */
     public function getTitle()
     {
-        return Yii::t('SpaceModule.activities', 'Space member left');
+        return Yii::t('SpaceModule.activities', 'Group member left');
     }
 
     /**
@@ -55,7 +55,7 @@ class MemberRemoved extends BaseActivity implements ConfigurableActivityInterfac
      */
     public function getDescription()
     {
-        return Yii::t('SpaceModule.activities', 'Whenever a member leaves one of your spaces.');
+        return Yii::t('SpaceModule.activities', 'Whenever a member leaves one of your groups.');
     }
 
 }

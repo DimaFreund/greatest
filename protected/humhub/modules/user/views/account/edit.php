@@ -18,11 +18,11 @@ use yii\helpers\Url;
 <div class="page-content">
 	<div class="content-wrap">
 		<div class="profile-settings">
-			<div class="base-kaushan-title">Settings</div>
+			<div class="base-kaushan-title"><?= Yii::t('UserModule.views_account_edit', 'Settings') ?></div>
 			<?php $form = ActiveForm::begin(['enableClientValidation' => false]); ?>
 
 				<div class="profile-info general-info">
-					<div class="title">General Info</div>
+					<div class="title"><?= Yii::t('UserModule.views_account_edit', 'General Info') ?></div>
 					<?= $form->field($user->profile, 'firstname',[
 					        'options' => [
 					                'class' => 'form-item sm-item',
@@ -34,7 +34,7 @@ use yii\helpers\Url;
                             ]]); ?>
 
 					<div class="form-item">
-                        <label for="desire-input">My Greatest Desire is…</label>
+                        <label for="desire-input"><?= Yii::t('UserModule.views_account_edit', 'My Greatest Desire is…') ?></label>
                         <?= $form->field($user->greatestDesire, 'title', [
                                 'options' => [
                                         'tag' => false,
@@ -42,13 +42,13 @@ use yii\helpers\Url;
                         ])->textarea(['id' => 'desire-input'])->label(false); ?>
 
 
-                        <p class="desire-input-desc">You can change Greatest Desire<a href="<?= Url::to(['/desire/desire/update', 'id' => $user->greatest_desire]); ?>"> here</a></p>
-                        <p class="desire-input-desc">You can add more any desires<a href="<?= Url::to(['/desire/desire/create']); ?>"> here</a></p>
+                        <p class="desire-input-desc"><?= Yii::t('UserModule.views_account_edit', 'You can change Greatest Desire') ?><a href="<?= Url::to(['/desire/desire/update', 'id' => $user->greatest_desire]); ?>"> <?= Yii::t('UserModule.views_account_edit', 'here') ?></a></p>
+                        <p class="desire-input-desc"><?= Yii::t('UserModule.views_account_edit', 'You can add more any desires') ?><a href="<?= Url::to(['/desire/desire/create']); ?>"> <?= Yii::t('UserModule.views_account_edit', 'here') ?></a></p>
 					</div>
 					<div class="form-item personal-info">
 
 						<div class="photo">
-							<div class="personal-info-label">Add profile photo</div>
+							<div class="personal-info-label"><?= Yii::t('UserModule.views_account_edit', 'Add profile photo') ?></div>
 
 							<div class="wrap">
 								<div class="img-block">
@@ -58,7 +58,7 @@ use yii\helpers\Url;
 						</div>
 
 						<div class="birthday">
-							<div class="personal-info-label">Birthday*</div>
+							<div class="personal-info-label"><?= Yii::t('UserModule.views_account_edit', 'Birthday*') ?></div>
 							<div class="wrap"><label><svg class="icon icon-calendar"><use xlink:href="./svg/sprite/sprite.svg#calendar"></use></svg>
 									<?= \humhub\widgets\DatePicker::widget([
 									        'model' => $user->profile,
@@ -75,7 +75,7 @@ use yii\helpers\Url;
 						</div>
 
 						<div class="gender">
-							<div class="personal-info-label">Gender*</div>
+							<div class="personal-info-label"><?= Yii::t('UserModule.views_account_edit', 'Gender*') ?></div>
 
                             <?= $form->field($user->profile, 'gender',[
                                     'options' => [
@@ -85,8 +85,8 @@ use yii\helpers\Url;
 						</div>
 					</div>
 					<div class="form-item pass-change">
-						<div class="item-label">Here you can change your password</div>
-						<p>To save old password, just leave this field empty. To change, enter new password and confirm it.</p>
+						<div class="item-label"><?= Yii::t('UserModule.views_account_edit', 'Here you can change your password') ?></div>
+						<p><?= Yii::t('UserModule.views_account_edit', 'To save old password, just leave this field empty. To change, enter new password and confirm it.') ?></p>
 					</div>
 
 					<?php if ($changePasswordModel->isAttributeSafe('currentPassword')): ?>
@@ -100,14 +100,14 @@ use yii\helpers\Url;
 
 					<div class="form-item site-notifications">
                         <input name="Notification[interval]" <?= $notificationOn ?'checked':''; ?> id="site-notification" type="checkbox">
-                        <label for="site-notification">Receive Site Notifications</label>
+                        <label for="site-notification"><?= Yii::t('UserModule.views_account_edit', 'Receive Site Notifications') ?></label>
                     </div>
 				</div>
 
 
 
 				<div class="profile-info additional-info">
-					<div class="title">Additional Info</div>
+					<div class="title"><?= Yii::t('UserModule.views_account_edit', 'Additional Info') ?></div>
 
                     <?= $form
                         ->field($user->profile, 'description', [
@@ -120,7 +120,7 @@ use yii\helpers\Url;
                     ?>
 
 					<div class="form-item sm-item">
-						<div class="label">Country*</div>
+						<div class="label"><?= Yii::t('UserModule.views_account_edit', 'Country*') ?></div>
 						<?= $form->field($user->profile, 'country',[
 							'options' => [
 								'tag' => false,
@@ -139,7 +139,7 @@ use yii\helpers\Url;
 
 
 					<div class="form-item sm-item">
-						<div class="label">Relationship Status</div>
+						<div class="label"><?= Yii::t('UserModule.views_account_edit', 'Relationship Status') ?></div>
 						<?= $form->field($user->profile, 'relationship',[
 							'options' => [
 								'tag' => false,
@@ -207,19 +207,19 @@ use yii\helpers\Url;
 					?>
 				</div>
 				<div class="profile-info profile-privacy">
-					<div class="title">Profile privacy</div>
+					<div class="title"><?= Yii::t('UserModule.views_account_edit', 'Profile privacy') ?></div>
 					<div class="form-item sm-item">
-						<div class="label">Who can see you</div><select><option>Public</option><option>Private</option><option>Public</option></select></div>
+						<div class="label"><?= Yii::t('UserModule.views_account_edit', 'Who can see you') ?></div><select><option><?= Yii::t('base','Public'); ?></option><option><?= Yii::t('base','Private'); ?></option><option><?= Yii::t('base','Public'); ?></option></select></div>
 					<div class="form-item sm-item">
-						<div class="label">Who can contact you</div><select><option>Public</option><option>Private</option><option>Public</option></select></div>
+						<div class="label"><?= Yii::t('UserModule.views_account_edit', 'Who can contact you') ?></div><select><option><?= Yii::t('base','Public'); ?></option><option><?= Yii::t('base','Private'); ?></option><option><?= Yii::t('base','Public'); ?></option></select></div>
 				</div>
 				<div class="profile-info social-btn">
-					<div class="title">Connect to your account</div>
+					<div class="title"><?= Yii::t('UserModule.views_account_edit', 'Connect to your account') ?></div>
 					<?= $socialButton; ?>
 				</div>
-				<p class="bottom-sub-title">Invite your Facebook friends</p>
+				<p class="bottom-sub-title"><?= Yii::t('UserModule.views_account_edit', 'Invite your Facebook friends') ?></p>
 
-				<div class="base-btn reverse"><input type="submit" value="Save"></div>
+				<div class="base-btn reverse"><input type="submit" value="<?= Yii::t('base','Save'); ?>"></div>
 
 
 

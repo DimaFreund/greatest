@@ -85,7 +85,7 @@ class TimelinePanel extends Panel
      */
     public function getName()
     {
-        return 'Timeline';
+        return Yii::t('base','Timeline');
     }
 
     /**

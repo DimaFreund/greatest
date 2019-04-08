@@ -12,7 +12,7 @@ use yii\widgets\DetailView;
 <div class="content-wrap">
     <div class="personal-profile-desire-single comments-node">
         <div class="desire-top">
-            <div class="title">My Desire is…</div>
+            <div class="title"><?= Yii::t('base','My Desire is'); ?>…</div>
 	        <?= \humhub\modules\rating\widgets\RatingDisplay::widget(['object' => $model]); ?>
         </div>
         <div class="desire-text">

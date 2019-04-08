@@ -3,7 +3,7 @@
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2015 HumHub GmbH & Co. KG
  * @license https://www.humhub.com/licences
- * 
+ *
  * @package humhub.modules.gallery.views
  * @since 1.0
  * @author Sebastian Stumpf
@@ -23,10 +23,10 @@ $bundle = Assets::register($this);
 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 gallery-list-entry">
     <div class="panel panel-default">
         <div class="panel-body">
-            <a href="<?= $fileUrl ?>#.jpeg" 
+            <a href="<?= $fileUrl ?>#.jpeg"
             <?php if ($uiGalleryId): ?>
-                   data-type="image" 
-                   data-toggle="lightbox" 
+                   data-type="image"
+                   data-toggle="lightbox"
                    data-parent="#gallery-content"
                    data-description="<?= Html::encode($title) ?>"
                    title="<?= Html::encode($title) ?>"
@@ -48,7 +48,7 @@ $bundle = Assets::register($this);
                              src="<?= $creatorThumbnailUrl ?>"
                              width="21" height="21" alt="21x21" data-src="holder.js/21x21"
                              style="width: 21px; height: 21px;"
-                             data-original-title="<?php echo Yii::t('GalleryModule.base', 'added by ') . $creatorName ?>"
+                             data-original-title="<?php echo Yii::t('base', 'added by ') . $creatorName ?>"
                              data-placement="top" title="" data-toggle="tooltip">
                     </a>
                 </div>
@@ -61,34 +61,34 @@ $bundle = Assets::register($this);
                         <ul class="dropdown-menu pull-right">
                             <?php if ($wallUrl): ?>
                                 <li>
-                                    <a href="<?= $wallUrl ?>"><i class="fa fa-link"></i> <?= Yii::t('GalleryModule.base', 'Show connected post') ?></a>
+                                    <a href="<?= $wallUrl ?>"><i class="fa fa-link"></i> <?= Yii::t('base', 'Show connected post') ?></a>
                                 </li>
                             <?php endif; ?>
                             <?php if ($writeAccess): ?>
                                 <?php if ($deleteUrl): ?>
                                     <li>
                                         <a data-action-click="ui.modal.post" data-action-url="<?= $deleteUrl ?>"
-                                           data-action-confirm-header="<?= Yii::t('GalleryModule.base', '<strong>Confirm</strong> delete item') ?>"
-                                           data-action-confirm="<?= Yii::t('GalleryModule.base', 'Do you really want to delete this item with all related content?') ?>">
-                                            <i class="fa fa-trash"></i> <?= Yii::t('GalleryModule.base', 'Delete') ?>
+                                           data-action-confirm-header="<?= Yii::t('base', '<strong>Confirm</strong> delete item') ?>"
+                                           data-action-confirm="<?= Yii::t('base', 'Do you really want to delete this item with all related content?') ?>">
+                                            <i class="fa fa-trash"></i> <?= Yii::t('base', 'Delete') ?>
                                         </a>
                                     </li>
                                 <?php endif; ?>
-                                <?php if ($editUrl): ?>
+                                <?php if (false): ?>
                                     <li>
-                                        <a data-target="#globalModal" href="<?= $editUrl ?>"><i class="fa fa-edit"></i> <?= Yii::t('GalleryModule.base', 'Edit') ?></a>
+                                        <a data-target="#globalModal" href="<?= $editUrl ?>"><i class="fa fa-edit"></i> <?= Yii::t('base', 'Edit') ?></a>
                                     </li>
                                 <?php endif; ?>
                             <?php endif; ?>
                             <?php if ($downloadUrl): ?>
                                 <li>
-                                    <a data-pjax-prevent="1" href="<?= $downloadUrl ?>"><i class="fa fa-download"></i> <?= Yii::t('GalleryModule.base', 'Download') ?></a>
+                                    <a data-pjax-prevent="1" href="<?= $downloadUrl ?>"><i class="fa fa-download"></i> <?= Yii::t('base', 'Download') ?></a>
                                 </li>
                             <?php endif; ?>
                         </ul>
                     </li>
                 </ul>
             <?php endif; ?>
-        </div> 
+        </div>
     </div>
 </div>

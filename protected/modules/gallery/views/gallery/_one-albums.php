@@ -32,7 +32,7 @@ use humhub\modules\user\models\User;
 					<div class="name"><?= $user->username; ?></div>
 				</a>
 			</div><a class="title" href="<?= $user->createUrl('/user/profile/photos', ['id' => $album->id]); ?>"><?= $album->title; ?></a>
-			<div class="img-counter"><?= count($album->getMediaList()); ?> photos</div>
+			<div class="img-counter"><?= count($album->getMediaList()); ?> <?= Yii::t('base','photos'); ?></div>
 			<div class="statistic-info">
 				<?= \humhub\modules\content\widgets\BottomPanelContent::widget(['object' => $album, 'commentLinkPage' => true, 'options' => ['commentPageUrl' => '/user/profile/photos'], 'mode' => \humhub\modules\content\widgets\BottomPanelContent::SMALL_MODE]); ?>
 

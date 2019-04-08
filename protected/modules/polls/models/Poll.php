@@ -47,7 +47,7 @@ class Poll extends ContentActiveRecord implements \humhub\modules\search\interfa
 
 	public static function objectName()
 	{
-		return 'poll'; //TODO translate;
+		return Yii::t('base','poll');
 	}
     
     public function scenarios()
@@ -67,8 +67,9 @@ class Poll extends ContentActiveRecord implements \humhub\modules\search\interfa
     {
         return array(
             [['question'], 'required'],
-            [['question'], 'string'],
+            [['question'], 'string', 'min' => 3, 'max' => 255],
             [['anonymous', 'is_random'], 'boolean'],
+            ['newAnswers', 'each', 'rule' => ['string','min' => 1, 'max' => 64]],
             [['newAnswers'], 'required', 'on' => self::SCENARIO_CREATE],
             [['newAnswers'], 'minTwoNewAnswers', 'on' => self::SCENARIO_CREATE],
             //we use the question attribute since its always required, otherwise it would not be called for editAnswers if editAnswers is empty...

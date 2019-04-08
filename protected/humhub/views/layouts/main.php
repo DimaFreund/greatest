@@ -41,13 +41,14 @@ use yii\helpers\Url;
 				<?php $form = ActiveForm::begin( [
 					'action'      => Url::to( [ '/search/search/index' ] ),
 					'method'      => 'GET',
+					'enableClientValidation' => true,
 					'fieldConfig' => [
 						'options' => [
-							'tag' => false,
+                            'tag' => 'div',
 						],
 					],
 				] ); ?>
-				<?= $form->field( new SearchForm, 'keyword', [ 'errorOptions' => [ 'tag' => null ] ] )->textInput( [
+				<?= $form->field( new SearchForm, 'keyword', [ 'errorOptions' => [ 'class' => ' error-search-validation' ] ] )->textInput( [
 					'placeholder' => Yii::t( 'SearchModule.views_search_index', 'Search for user, spaces and content' ),
 					'title'       => Yii::t( 'SearchModule.views_search_index', 'Search for user, spaces and content' ),
 					'id'          => 'headerSearch'
@@ -93,8 +94,13 @@ use yii\helpers\Url;
             <div class="activities-menu">
 
                 <div class="mobile-activities-btn">
-                    <p>Activities</p>
-<!--                    <div class="activity-counter"><span>9</span></div>-->
+                    <p><?= Yii::t('base','Activities'); ?></p>
+                    <?php $counterActivity = \humhub\modules\notification\models\Notification::findUnseen()->count(); ?>
+                    <?php if($counterActivity) { ?>
+                    <div class="activity-counter"><span>
+                            <?= $counterActivity ?>
+                        </span></div>
+                    <?php } ?>
                 </div>
                 <div class="mobile-wrap">
                     <div class="wrap">
@@ -108,16 +114,16 @@ use yii\helpers\Url;
                                     <use xlink:href="svg/sprite/sprite.svg#favorites"></use>
                                 </svg>
                             </div>
-                            <div class="tooltip-base">Favorites</div>
+                            <div class="tooltip-base"><?= Yii::t('base', 'Favorites'); ?></div>
                             <div class="activity-sub-menu">
                                 <div class="favorites-sub-menu">
                                     <div class="sub-menu-header">
-                                        <div class="title">Favorites</div>
+                                        <div class="title"><?= Yii::t('base', 'Favorites'); ?></div>
                                     </div>
                                     <div class="sub-menu-content">
 										<?= \humhub\modules\favorite\widgets\TopWindows::widget(); ?>
                                     </div>
-                                    <div class="sub-menu-footer"><a class="seeAll" href="<?= Url::to(['/favorite/list']); ?>">See all</a></div>
+                                    <div class="sub-menu-footer"><a class="seeAll" href="<?= Url::to(['/favorite/list']); ?>"><?= Yii::t('base', 'See all'); ?></a></div>
                                 </div>
                             </div>
                         </div>
@@ -128,10 +134,10 @@ use yii\helpers\Url;
                                     <use xlink:href="svg/sprite/sprite.svg#add"></use>
                                 </svg>
                             </div>
-                            <div class="tooltip-base">Add new</div>
+                            <div class="tooltip-base"><?= Yii::t('base', 'Add new'); ?></div>
                             <div class="activity-sub-menu">
                                 <div class="add-sub-menu">
-                                    <div class="add-header"> Add new</div>
+                                    <div class="add-header"> <?= Yii::t('base', 'Add new'); ?></div>
                                     <div class="form-block">
 										<?= \humhub\modules\user\widgets\UserChangeStatus::widget(); ?>
 
@@ -142,12 +148,12 @@ use yii\helpers\Url;
                                                 <svg class="icon icon-earth_green">
                                                     <use xlink:href="svg/sprite/sprite.svg#earth_green"></use>
                                                 </svg>
-                                                Desire</a></div>
+		                                        <?= Yii::t('base', 'Desire'); ?></a></div>
                                         <div class="link"><a href="<?= Url::to( [ '/blog/blog/create', 'id' => 100 ] ); ?>">
                                                 <svg class="icon icon-success_stories">
                                                     <use xlink:href="svg/sprite/sprite.svg#success_stories"></use>
                                                 </svg>
-                                                Success story</a></div>
+		                                        <?= Yii::t('base', 'Success story'); ?></a></div>
 
                                         <div class="link">
                                             <a data-target="#globalModal"
@@ -155,7 +161,7 @@ use yii\helpers\Url;
                                                 <svg class="icon icon-photos">
                                                     <use xlink:href="svg/sprite/sprite.svg#photos"></use>
                                                 </svg>
-                                                Photos
+	                                            <?= Yii::t('base', 'Photos'); ?>
                                             </a>
                                         </div>
 
@@ -163,18 +169,18 @@ use yii\helpers\Url;
                                                 <svg class="icon icon-blog">
                                                     <use xlink:href="svg/sprite/sprite.svg#blog"></use>
                                                 </svg>
-                                                Blog post</a></div>
+		                                        <?= Yii::t('base', 'Blog post'); ?></a></div>
                                         <div class="link"><a href="<?= Url::to(['/space/create']); ?>">
                                                 <svg class="icon icon-Group">
                                                     <use xlink:href="svg/sprite/sprite.svg#Group"></use>
                                                 </svg>
-                                                Group</a></div>
+		                                        <?= Yii::t('base', 'Group'); ?></a></div>
                                         <div class="link"><a
                                                     href="<?= $userModel->createUrl( '/polls/poll/create' ); ?>">
                                                 <svg class="icon icon-poll">
                                                     <use xlink:href="svg/sprite/sprite.svg#poll"></use>
                                                 </svg>
-                                                Poll</a></div>
+		                                        <?= Yii::t('base', 'Poll'); ?></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +192,7 @@ use yii\helpers\Url;
                                     <use xlink:href="svg/sprite/sprite.svg#invite"></use>
                                 </svg>
                             </div>
-                            <div class="tooltip-base">Invite friend</div>
+                            <div class="tooltip-base"><?= Yii::t('base', 'Invite friend'); ?></div>
                             <div class="activity-sub-menu">
                                 <div class="invite-sub-menu">
                                     <a data-action-click="ui.modal.load" data-action-url="<?= $userModel->createUrl('/user/invite'); ?>">
@@ -195,14 +201,14 @@ use yii\helpers\Url;
                                                 <use xlink:href="svg/sprite/sprite.svg#email"></use>
                                             </svg>
                                         </div>
-                                        Invite Friends by E-mail</a>
+	                                    <?= Yii::t('base', 'Invite Friends by E-mail'); ?></a>
                                     <a href="#">
                                         <div class="inv-icon">
                                             <svg class="icon icon-facebook">
                                                 <use xlink:href="svg/sprite/sprite.svg#facebook"></use>
                                             </svg>
                                         </div>
-                                        Invite Friends from Facebook</a>
+	                                    <?= Yii::t('base', 'Invite Friends from Facebook'); ?></a>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +220,7 @@ use yii\helpers\Url;
                     <div class="account-block">
                         <a href="<?= $userModel->createUrl( '/user/profile/home' ); ?>">
                             <div class="user-img"><img src="<?= $userModel->getProfileImage()->getUrl(); ?>"></div>
-                            <span>My Account</span></a>
+                            <span><?= Yii::t('base', 'My Account'); ?></span></a>
                     </div>
                     <div class="setting-block">
                         <a href="<?= Url::toRoute( '/user/account/edit' ); ?>">
@@ -223,7 +229,7 @@ use yii\helpers\Url;
                                     <use xlink:href="svg/sprite/sprite.svg#settings"></use>
                                 </svg>
                             </div>
-                            <span>Settings</span></a>
+                            <span><?= Yii::t('base', 'Settings'); ?></span></a>
                     </div>
 					<?php if ( \humhub\modules\admin\widgets\AdminMenu::canAccess() ) { ?>
                         <div class="setting-block">
@@ -233,7 +239,7 @@ use yii\helpers\Url;
                                         <use xlink:href="svg/sprite/sprite.svg#settings"></use>
                                     </svg>
                                 </div>
-                                <span>Admin</span></a>
+                                <span><?= Yii::t('base', 'Admin'); ?></span></a>
                         </div>
 					<?php } ?>
                     <div class="logOut">
@@ -243,7 +249,7 @@ use yii\helpers\Url;
                                     <use xlink:href="svg/sprite/sprite.svg#logout"></use>
                                 </svg>
                             </div>
-                            <span>Logout</span></a>
+                            <span><?= Yii::t('base','Logout'); ?></span></a>
                     </div>
                 </div>
                 <div class="mobile-user-block">
@@ -261,7 +267,7 @@ use yii\helpers\Url;
                                             <use xlink:href="svg/sprite/sprite.svg#settings"></use>
                                         </svg>
                                     </div>
-                                    <span>Settings</span></a>
+                                    <span><?= Yii::t('base','Settings'); ?></span></a>
                             </div>
 							<?php if ( \humhub\modules\admin\widgets\AdminMenu::canAccess() ) { ?>
                                 <div class="setting-block">
@@ -271,7 +277,7 @@ use yii\helpers\Url;
                                                 <use xlink:href="svg/sprite/sprite.svg#settings"></use>
                                             </svg>
                                         </div>
-                                        <span>Admin</span></a>
+                                        <span><?= Yii::t('base','Admin'); ?></span></a>
                                 </div>
 							<?php } ?>
                             <div class="logOut">
@@ -281,7 +287,7 @@ use yii\helpers\Url;
                                             <use xlink:href="svg/sprite/sprite.svg#logout"></use>
                                         </svg>
                                     </div>
-                                    <span>Logout</span></a>
+                                    <span><?= Yii::t('base','Logout'); ?></span></a>
                             </div>
                         </div>
                     </div>
@@ -367,7 +373,7 @@ use yii\helpers\Url;
     </div>
     <div class="bottom">
         <div class="base-wrap">
-            <div class="copy">© All rights reserved.</div>
+            <div class="copy"><?= Yii::t('base','© All rights reserved.'); ?></div>
             <div class="dev-logo"><a href="#"><svg class="icon icon-logo_footer"><use xlink:href="<?= $this->theme->getBaseUrl(); ?>/svg/sprite/sprite.svg#logo_footer"></use></svg></a></div>
         </div>
     </div>

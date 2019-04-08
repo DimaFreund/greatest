@@ -10,14 +10,14 @@ use yii\helpers\Url;
 	<div id="icon-friends" class="activity-icon"><svg class="icon icon-friends"><use xlink:href="svg/sprite/sprite.svg#friends"></use></svg>
 		<div class="activity-counter"><span id="badge-requests"><?php echo $receivedRequestsCount; ?></span></div>
 	</div>
-	<div class="tooltip-base">Friends</div>
+	<div class="tooltip-base"><?= Yii::t('base','Friends'); ?></div>
 	<div class="activity-sub-menu">
 		<div class="friends-sub-menu">
 
 			<div class="sub-menu-header">
-				<div class="title">Friend Requests</div>
+				<div class="title"><?= Yii::t('base','Friend Requests'); ?></div>
 				<div class="counter"><span ><?php echo $receivedRequestsCount; ?></span></div>
-                <div class="moreLink"><a class="findUserLink" href="<?= Url::toRoute(['/search', 'SearchForm[keyword]' => ' ', 'scope[user]' => 'on']); ?>">Find friends</a></div>
+                <div class="moreLink"><a class="findUserLink" href="<?= Url::toRoute(['/search', 'SearchForm[keyword]' => ' ', 'scope[user]' => 'on']); ?>"><?= Yii::t('base','Find friends'); ?></a></div>
 			</div>
 
 			<div class="sub-menu-content">
@@ -28,13 +28,13 @@ use yii\helpers\Url;
 				</div>
 				<div class="onLineList">
 					<div class="list-header">
-						<div class="marker"></div><span>Friends Online (<?= $count_online_user; ?>)</span></div>
+						<div class="marker"></div><span><?= Yii::t('base','Friends Online'); ?> (<?= $count_online_user; ?>)</span></div>
 					<ul id="dropdown-online">
 
 					</ul>
 				</div>
 			</div>
-			<div class="sub-menu-footer"><a class="seeAll" href="<?= Url::to(['/friendship/manage/list', 'id' => Yii::$app->user->id]); ?>">See all</a></div>
+			<div class="sub-menu-footer"><a class="seeAll" href="<?= Url::to(['/friendship/manage/list', 'id' => Yii::$app->user->id]); ?>"><?= Yii::t('base','See all'); ?></a></div>
 		</div>
 	</div>
 </div>

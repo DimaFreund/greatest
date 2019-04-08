@@ -13,7 +13,7 @@ use yii\helpers\Url;
 <div class="content-wrap">
 	<div class="personal-profile-photo-single comments-node">
 		<div class="photo-top">
-			<div class="title">Photo from <?= $this->context->contentContainer->username; ?></div>
+			<div class="title"><?= Yii::t('base','Photo from'); ?> <?= isset($this->context->contentContainer->username) ? $this->context->contentContainer->username : $this->context->contentContainer->name; ?></div>
             <a href="<?= $this->context->contentContainer->createUrl('/user/profile/photos', ['id' => $album->id]); ?>"><div class="album-name"><?= $album->title; ?></div></a>
 			<div class="date"><?= \humhub\widgets\TimeAgo::widget(['timestamp' => $photo->date_create]); ?></div>
 		</div>
@@ -51,6 +51,41 @@ use yii\helpers\Url;
 <!--					<li><a href="#">Edit 3</a></li>-->
 <!--				</ul>-->
 <!--			</div>-->
+			<?php if ($wallUrl || $downloadUrl || ($writeAccess && ($deleteUrl || $editUrl))): ?>
+                <ul class="pull-right nav nav-pills preferences">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu pull-right">
+							<?php if ($wallUrl): ?>
+                                <li>
+                                    <a href="<?= $wallUrl ?>"><i class="fa fa-link"></i> <?= Yii::t('base', 'Show connected post') ?></a>
+                                </li>
+							<?php endif; ?>
+							<?php if ($writeAccess): ?>
+								<?php if ($deleteUrl): ?>
+                                    <li>
+                                        <a data-action-click="ui.modal.post" data-action-url="<?= $deleteUrl ?>"
+                                           data-action-confirm-header="<?= Yii::t('base', '<strong>Confirm</strong> delete item') ?>"
+                                           data-action-confirm="<?= Yii::t('base', 'Do you really want to delete this item with all related content?') ?>">
+                                            <i class="fa fa-trash"></i> <?= Yii::t('base', 'Delete') ?>
+                                        </a>
+                                    </li>
+								<?php endif; ?>
+								<?php if (false): ?>
+                                    <li>
+                                        <a data-target="#globalModal" href="<?= $editUrl ?>"><i class="fa fa-edit"></i> <?= Yii::t('base', 'Edit') ?></a>
+                                    </li>
+								<?php endif; ?>
+							<?php endif; ?>
+							<?php if ($downloadUrl): ?>
+                                <li>
+                                    <a data-pjax-prevent="1" href="<?= $downloadUrl ?>"><i class="fa fa-download"></i> <?= Yii::t('base', 'Download') ?></a>
+                                </li>
+							<?php endif; ?>
+                        </ul>
+                    </li>
+                </ul>
+			<?php endif; ?>
 		</div>
 		<div class="footer">
 			<?= \humhub\modules\content\widgets\BottomPanelContent::widget(['object' => $photo]); ?>
@@ -58,4 +93,4 @@ use yii\helpers\Url;
 		<?= \humhub\modules\comment\widgets\Comments::widget(['object' => $photo]); ?>
 	</div>
 </div>
-<div class="base-btn"><a href="<?= $this->context->contentContainer->createUrl('/gallery/list'); ?>">All Albums</a></div>
+<div class="base-btn"><a href="<?= $this->context->contentContainer->createUrl('/gallery/list'); ?>"><?= Yii::t('base','All Albums'); ?></a></div>

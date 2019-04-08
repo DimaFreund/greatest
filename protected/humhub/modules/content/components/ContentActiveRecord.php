@@ -424,10 +424,10 @@ class ContentActiveRecord extends ActiveRecord implements ContentOwner
 
 	public static function getSortParameters() {
 		return $sortParameters = [
-			'descdate' => 'Newest first',
-			'ascdate'  => 'Old first',
-			'like'     => 'Most Like',
-			'favorite' => 'Most Favorite',
+			'descdate' => Yii::t('base','Newest first'),
+			'ascdate'  => Yii::t('base','Old first'),
+			'like'     => Yii::t('base','Most Like'),
+			'favorite' => Yii::t('base','Most Favorite'),
 		];
 	}
 

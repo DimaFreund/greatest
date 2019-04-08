@@ -9,7 +9,9 @@
 namespace humhub\modules\post\controllers;
 
 use humhub\modules\post\models\Post;
+use Spatie\Dropbox\Exceptions\BadRequest;
 use Yii;
+use yii\base\Exception;
 
 /**
  * @package humhub.modules_core.post.controllers
@@ -27,7 +29,9 @@ class PostController extends \humhub\modules\content\components\ContentContainer
 
         $post = new Post();
         $post->message = \Yii::$app->request->post('message');
-
+		if(!$post->validate()) {
+			throw new Exception('Post message too long');
+		}
         /*
           // Experimental: Auto attach found images urls in message as files
           if (isset(Yii::app()->params['attachFilesByUrlsToContent']) && Yii::app()->params['attachFilesByUrlsToContent'] == true) {

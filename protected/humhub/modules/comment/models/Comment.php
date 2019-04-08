@@ -51,7 +51,8 @@ class Comment extends ContentAddonActiveRecord implements ContentOwner
     public function rules()
     {
         return [
-            [['message'], 'safe'],
+            [['message'], 'required'],
+	        [['message'], 'string', 'max' => 8192]
         ];
     }
 

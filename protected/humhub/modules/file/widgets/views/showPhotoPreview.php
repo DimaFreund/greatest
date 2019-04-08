@@ -105,8 +105,8 @@ use yii\helpers\Html;
 
 					    		<?php if ( $counter == 0 ) { ?>
 					    			<?php $arr             = array(
-					    				'height' => 181,
-					    				'width'  => 137,
+					    				'height' => 724,
+					    				'width'  => 548,
 					    				'mode'   => 'force'
 					    			);
 					    			$previewImage->options = $arr;
@@ -162,11 +162,4 @@ use yii\helpers\Html;
         </div>
 
 	<?php } ?>
-<?php } else { ?>
-    <?php if(!($object instanceof Post)) { ?>
- <div class="img-default">
-     <img src="<?= Yii::$app->getModule( 'content' )->getAssetsUrl() . '/default.png'; ?>" alt="">
-
- </div>
-        <?php } ?>
-<?php  } ?>
+<?php }?>

@@ -10,8 +10,8 @@ use humhub\modules\rating\widgets\RatingDisplay;
 			<?= ShowPhotoPreview::widget( [
 				'object'  => $desire,
 				'options' => [
-					'width'  => 120,
-					'height' => 120,
+					'width'  => 620,
+					'height' => 620,
 					'index'  => 0
 				]
 			] ); ?>

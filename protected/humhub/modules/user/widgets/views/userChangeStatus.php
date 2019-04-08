@@ -4,10 +4,10 @@ use \humhub\compat\CActiveForm;
 use yii\helpers\Url;
 
 ?>
-<?php $form = CActiveForm::begin( [ 'action' => URL::to( [ '/user/account/change-status' ] ) ] ); ?>
+<?php $form = \yii\widgets\ActiveForm::begin( [ 'action' => URL::to( [ '/user/account/change-status' ] ), 'enableClientValidation' => true, 'enableClientScript' => true ] ); ?>
     <div class="form-item">
-        <label for="status">Status message…</label>
-		<?= $form->textArea( $model, 'info_status', [ 'onChange' => 'this.form.submit()' ] ); ?>
+        <label for="status"><?= Yii::t('base', 'Status message…'); ?></label>
+		<?= $form->field( $model, 'info_status')->textarea([ 'onChange' => 'this.form.submit()' ] )->label(false); ?>
     </div>
 
-<?php CActiveForm::end(); ?>
+<?php \yii\widgets\ActiveForm::end(); ?>

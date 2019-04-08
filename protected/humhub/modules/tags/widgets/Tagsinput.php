@@ -8,12 +8,19 @@ use yii\helpers\Html;
 
 class Tagsinput extends TagsinputWidget {
 
+	public $clientOptions = [
+		'trimValue'       => true,
+		'allowDuplicates' => false,
+		'maxChars'        => 15,
+		'maxTags'         => 15,
+	];
+
 	public function run() {
 
 		$this->registerClientScript();
 
-		if(Yii::$app->request->post('tags')) {
-			$value = Yii::$app->request->post('tags');
+		if ( Yii::$app->request->post( 'tags' ) ) {
+			$value = Yii::$app->request->post( 'tags' );
 		} else {
 
 			$tags = $this->model->tags;
@@ -24,7 +31,7 @@ class Tagsinput extends TagsinputWidget {
 				$value .= $tag->title . ' ,';
 			}
 		}
-		echo Html::textInput('tags', $value, $this->options);
+		echo Html::textInput( 'tags', $value, $this->options );
 
 	}
 

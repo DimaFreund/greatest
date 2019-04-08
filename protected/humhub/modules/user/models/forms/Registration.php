@@ -169,14 +169,14 @@ class Registration extends HForm
         $form['elements']['username'] = [
             'type' => 'text',
             'class' => 'form-control',
-            'title' => Yii::t('UserModule.controllers_AuthController', 'Choose a Username wich will be used for logging in to the site'),
+            'title' => Yii::t('UserModule.views_registration_index', 'Choose a Username wich will be used for logging in to the site'),
             'maxlength' => 25,
         ];
         if ($this->enableEmailField) {
             $form['elements']['email'] = [
                 'type' => 'text',
                 'class' => 'form-control',
-                'title' => Yii::t('UserModule.controllers_AuthController', 'Enter your E-mail. Your password will be sent to this e-mail'),
+                'title' => Yii::t('UserModule.views_registration_index', 'Enter your E-mail. Your password will be sent to this e-mail'),
             ];
         }
 
@@ -197,13 +197,13 @@ class Registration extends HForm
                     'type' => 'password',
                     'class' => 'form-control',
                     'maxlength' => 255,
-                    'title' => Yii::t('UserModule.controllers_AuthController', 'Choose a Password'),
+                    'title' => Yii::t('UserModule.views_registration_index', 'Choose a Password'),
                 ),
                 'newPasswordConfirm' => array(
                     'type' => 'password',
                     'class' => 'form-control',
                     'maxlength' => 255,
-                    'title' => Yii::t('UserModule.controllers_AuthController', 'Enter the same Password here'),
+                    'title' => Yii::t('UserModule.views_registration_index', 'Enter the same Password here'),
                 ),
             ),
         );

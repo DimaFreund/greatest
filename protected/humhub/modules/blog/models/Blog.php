@@ -51,7 +51,7 @@ class Blog extends ContentActiveRecord implements Searchable {
 	}
 
 	public static function objectName() {
-		return 'blog post';
+		return Yii::t('base','blog post');
 	}
 
 	/**
@@ -60,8 +60,9 @@ class Blog extends ContentActiveRecord implements Searchable {
 	public function rules() {
 		return [
 			[ [ 'message', 'title' ], 'required' ],
+			[['title'], 'string', 'max' => 255],
 			[ [ 'category' ], 'integer' ],
-			[ [ 'message' ], 'string' ],
+			[ [ 'message' ], 'string', 'max' => 8192 ],
 			[ [ 'url' ], 'string', 'max' => 255 ]
 		];
 	}

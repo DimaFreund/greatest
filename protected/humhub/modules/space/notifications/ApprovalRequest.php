@@ -82,10 +82,15 @@ class ApprovalRequest extends BaseNotification
      */
     public function html()
     {
-        return Yii::t('SpaceModule.notification', '{displayName} requests membership for the space {spaceName}', [
+        return Yii::t('SpaceModule.notification', '{displayName} requests membership for the group {spaceName}', [
                     '{displayName}' => Html::tag('strong', Html::encode($this->originator->displayName)),
                     '{spaceName}' => Html::tag('strong', Html::encode($this->source->name))
-        ]);
+        ])
+               .'<br><p style="padding: 5px 0px;">'
+               . Html::a(Yii::t('base','Approve'), $this->source->createUrl('/space/manage/member/approve-applicant', ['userGuid' => $this->originator->guid]), ['class' => 'btn btn-primary btn-sm', 'data-method' => 'POST'])
+               .' '
+               . Html::a(Yii::t('base','Reject'), $this->source->createUrl('/space/manage/member/reject-applicant', ['userGuid' => $this->originator->guid]), ['class' => 'btn btn-danger btn-sm', 'data-method' => 'POST'])
+               .'</p>';
     }
 
     /**

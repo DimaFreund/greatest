@@ -46,7 +46,7 @@ class ProfileMenu extends \humhub\widgets\BaseMenu
 
         if ($this->user->permissionManager->can(new ViewAboutPage())) {
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Timeline'),
+                'label' => Yii::t('base', 'Timeline'),
                 'url' => $this->user->createUrl('//user/profile/home'),
                 'sortOrder' => 200,
                 'isActive' => (Yii::$app->controller->id == "profile" && (Yii::$app->controller->action->id == "index" || Yii::$app->controller->action->id == "home")),
@@ -54,56 +54,56 @@ class ProfileMenu extends \humhub\widgets\BaseMenu
 
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Info'),
+                'label' => Yii::t('base', 'Info'),
                 'url' => $this->user->createUrl('//user/profile/about'),
                 'sortOrder' => 300,
                 'isActive' => (Yii::$app->controller->id == "profile" && Yii::$app->controller->action->id == "about"),
             ]);
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Desires'),
+                'label' => Yii::t('base', 'Desires'),
                 'url' => $this->user->createUrl('//user/profile/desires'),
                 'sortOrder' => 400,
                 'isActive' => (Yii::$app->controller->id == "profile" && ( Yii::$app->controller->action->id == "desires" || Yii::$app->controller->action->id == "desire-one")),
             ]);
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Friends'),
+                'label' => Yii::t('base', 'Friends'),
                 'url' => Url::toRoute(['/friendship/manage/list', 'id' => $this->user->id]),
                 'sortOrder' => 500,
                 'isActive' => (Yii::$app->controller->id == "manage" && Yii::$app->controller->action->id == "list"),
             ]);
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Blog'),
+                'label' => Yii::t('base', 'Blog'),
                 'url' => $this->user->createUrl('//user/profile/blog'),
                 'sortOrder' => 600,
                 'isActive' => (Yii::$app->controller->id == "profile" && ( Yii::$app->controller->action->id == "blog")),
             ]);
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Success stories'),
+                'label' => Yii::t('base', 'Success stories'),
                 'url' => $this->user->createUrl('//user/profile/success-stories'),
                 'sortOrder' => 600,
                 'isActive' => (Yii::$app->controller->id == "profile" && ( Yii::$app->controller->action->id == "success-stories" || Yii::$app->controller->action->id == "success-stories-one")),
             ]);
 
 	        $this->addItem([
-		        'label' => Yii::t('GalleryModule.base', 'Photos'),
+		        'label' => Yii::t('base', 'Photos'),
 		        'url' => $this->user->createUrl('//gallery/list'),
 		        'sortOrder' => 700,
 		        'isActive' => (Yii::$app->controller->id == "list" && (Yii::$app->controller->action->id == "index" || Yii::$app->controller->action->id == "photos" || Yii::$app->controller->action->id == 'photo-one'))
 	        ]);
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Groups'),
+                'label' => Yii::t('base', 'Groups'),
                 'url' => $this->user->createUrl('//user/profile/space-membership-list'),
                 'sortOrder' => 800,
                 'isActive' => (Yii::$app->controller->id == "profile" && Yii::$app->controller->action->id == "groups"),
             ]);
 
             $this->addItem([
-                'label' => Yii::t('UserModule.widgets_ProfileMenuWidget', 'Polls'),
+                'label' => Yii::t('base', 'Polls'),
                 'url' => $this->user->createUrl('//user/profile/polls'),
                 'sortOrder' => 900,
                 'isActive' => (Yii::$app->controller->id == "profile" && Yii::$app->controller->action->id == "polls"),

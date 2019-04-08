@@ -61,11 +61,17 @@ class ManageController extends BaseAccountController
 			$this->user->status_online = 1;
 		}
 
+		$receivedRequestsCount = Friendship::getReceivedRequestsQuery(Yii::$app->user->getIdentity())->count();
+
+		$requests = Friendship::getReceivedRequestsQuery($this->getUser())->all();
+
 		return $this->render('list', [
 			'user' => $this->user,
 			'friends' => $friends,
 			'count' => $count,
 			'ajaxUrl' => $ajaxUrl,
+			'requests' => $requests,
+			'receivedRequestsCount' => $receivedRequestsCount,
 		]);
 	}
 

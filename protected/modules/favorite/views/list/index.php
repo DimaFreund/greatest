@@ -21,7 +21,7 @@ use humhub\modules\user\models\User;
         <div class="favorite-page">
         <h2>Favorites</h2>
         <div class="wraper-group-content content-media">
-            <h3>Photos (<?= (isset($counts[Media::className()])?$counts[Media::className()]:0); ?>)</h3>
+            <h3><?= Yii::t('base','Photos'); ?> (<?= (isset($counts[Media::className()])?$counts[Media::className()]:0); ?>)</h3>
 	        <?php foreach($photos as $photo) { ?>
 
 		        <?php
@@ -45,13 +45,13 @@ use humhub\modules\user\models\User;
             </div>
         </div>
         <div class="wraper-group-content content-album">
-            <h3>Albums (<?= (isset($counts[CustomGallery::className()])?$counts[CustomGallery::className()]:0); ?>)</h3>
+            <h3><?= Yii::t('base','Albums'); ?> (<?= (isset($counts[CustomGallery::className()])?$counts[CustomGallery::className()]:0); ?>)</h3>
             <div class="albums-layout" id="list-albums">
 	        <?php foreach($albums as $album) { ?>
                 <div class="album public-album">
 			        <?php $metaData = $album->getMetaData(); ?>
                     <div class="img-block"><img src="<?= $metaData['thumbnailUrl']; ?>">
-                        <div class="category"><?= isset($category[$album->category])?$category[$album->category]:''; ?></div>
+                        <div class="category"><?= isset($categoryAlbum[$album->category])?$categoryAlbum[$album->category]:''; ?></div>
                     </div>
                     <div class="desc">
                         <div class="author-block">
@@ -65,7 +65,7 @@ use humhub\modules\user\models\User;
                                 <div class="name"><?= $user->username; ?></div>
                             </a>
                         </div><a class="title" href="<?= $user->createUrl('/user/profile/photos', ['id' => $album->id]); ?>"><?= $album->title; ?></a>
-                        <div class="img-counter"><?= count($album->getMediaList()); ?> photos</div>
+                        <div class="img-counter"><?= count($album->getMediaList()); ?> <?= Yii::t('base','photos'); ?></div>
                         <div class="statistic-info">
 					        <?= \humhub\modules\content\widgets\BottomPanelContent::widget(['object' => $album, 'commentLinkPage' => true, 'options' => ['commentPageUrl' => '/user/profile/photos'], 'mode' => \humhub\modules\content\widgets\BottomPanelContent::SMALL_MODE]); ?>
 
@@ -80,7 +80,7 @@ use humhub\modules\user\models\User;
             </div>
         </div>
         <div class="wraper-group-content content-blog">
-            <h3>Blog posts (<?= (isset($counts[Blog::className()])?$counts[Blog::className()]:0); ?>)</h3>
+            <h3><?= Yii::t('base','Blog posts'); ?> (<?= (isset($counts[Blog::className()])?$counts[Blog::className()]:0); ?>)</h3>
 
             <?php foreach($blogs as $article) { ?>
 	        <?php $user = User::findOne($article->created_by); ?>
@@ -101,7 +101,7 @@ use humhub\modules\user\models\User;
                         </div>
                         <div class="description-block">
                             <div class="title"><a href="<?= $user->createUrl('/user/profile/blog-one', ['id' => $article->id]); ?>"><?= $article->title; ?></a></div>
-                            <div class="subtitle"><?= isset($category[$article->category])?$category[$article->category]:''; ?></div>
+                            <div class="subtitle"><?= isset($categoryBlog[$article->category])?$categoryBlog[$article->category]:''; ?></div>
                             <div class="text"><?= \humhub\widgets\RichText::widget(['text' => $article->message, 'maxLength' => 40]); ?></div>
                         </div>
                     </div>

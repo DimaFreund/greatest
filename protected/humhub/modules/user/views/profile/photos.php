@@ -11,11 +11,11 @@
         <ul class="small-tabs-controls">
             <li class="<?= ($this->context->action->id === 'photos')? 'active': ''; ?>"><a ><?= $album->title; ?></a></li>
 	        <?php if($this->context->contentContainer instanceof \humhub\modules\user\models\User){ ?>
-            <li class="<?= ($this->context->action->id === 'favorite-photos')? 'active': ''; ?>"><a href="<?= $this->context->contentContainer->createUrl('/user/profile/favorite-photos'); ?>">Favorite photos</a></li>
+            <li class="<?= ($this->context->action->id === 'favorite-photos')? 'active': ''; ?>"><a href="<?= $this->context->contentContainer->createUrl('/user/profile/favorite-photos'); ?>"><?= Yii::t('base','Favorite'); ?> <?= Yii::t('base','photos'); ?></a></li>
             <?php } ?>
             <?php  if(Yii::$app->getModule('gallery')->canWrite(Yii::$app->controller->contentContainer)) { ?>
             <li class="pull-right">
-                <a href="<?= $this->context->contentContainer->createUrl('/gallery/custom-gallery/view',['openGalleryId' => $album->id]); ?>">Edit/Add</a>
+                <a href="<?= $this->context->contentContainer->createUrl('/gallery/custom-gallery/view',['openGalleryId' => $album->id]); ?>"><?= Yii::t('base','Edit'); ?>/<?= Yii::t('base','Add'); ?></a>
             </li>
             <?php } ?>
         </ul>

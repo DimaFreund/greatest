@@ -51,7 +51,7 @@ class Media extends ContentActiveRecord {
 	}
 
 	public static function objectName() {
-		return 'photo'; //TODO translate;
+		return Yii::t('base','photo');
 	}
 
 	/**

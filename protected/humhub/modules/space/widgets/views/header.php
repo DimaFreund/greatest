@@ -44,15 +44,7 @@ if ($space->isAdmin()) {
             <div class="image-upload-buttons" id="profile-image-upload-buttons">
                 <a onclick="javascript:$('#profilefileupload input').click();" class="btn btn-info btn-sm"><i
                             class="fa fa-cloud-upload"></i></a>
-                <a id="profile-image-upload-edit-button"
-                   style="<?php
-			       if (!$space->getProfileImage()->hasImage()) {
-				       echo 'display: none;';
-			       }
-			       ?>"
-                   href="<?php echo $space->createUrl('/space/manage/image/crop'); ?>"
-                   class="btn btn-info btn-sm" data-target="#globalModal" data-backdrop="static"><i
-                            class="fa fa-edit"></i></a>
+                
 			    <?php
 			    echo humhub\widgets\ModalConfirm::widget(array(
 				    'uniqueID' => 'modal_profileimagedelete',

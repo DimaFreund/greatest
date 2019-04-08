@@ -51,6 +51,10 @@ class ListController extends GeneralController {
 
 		$polls = Favorite::getFavoriteContentQuery(Poll::className(), $contentId)->limit(3)->all();
 
+		$category = new \humhub\modules\content\models\Category();
+		$categoryAlbum = $category->getAllCurrentLanguage( Yii::$app->language, 'gallery' );
+		$categoryBlog = $category->getAllCurrentLanguage( Yii::$app->language, 'blog' );
+
 		return $this->render('index',
 			[
 				'counts' => $counts,
@@ -58,7 +62,9 @@ class ListController extends GeneralController {
 				'albums' => $albums,
 				'blogs'  => $blogs,
 				'desires' => $desires,
-				'polls'  => $polls
+				'polls'  => $polls,
+				'categoryAlbum' => $categoryAlbum,
+				'categoryBlog' => $categoryBlog,
 			]);
 	}
 

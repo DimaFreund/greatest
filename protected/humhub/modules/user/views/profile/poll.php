@@ -5,8 +5,8 @@
 	<div class="content-wrap">
 		<div class="personal-profile-polls">
             <ul class="small-tabs-controls">
-                <li class="<?= ($this->context->action->id === 'polls')? 'active': ''; ?>"><a href="<?= $this->context->contentContainer->createUrl('/user/profile/polls'); ?>">Polls</a></li>
-                <li><a class="<?= ($this->context->action->id === 'favorite-polls')? 'active': ''; ?>" href="<?= $this->context->contentContainer->createUrl('/user/profile/favorite-polls'); ?>">Favorite polls</a></li>
+                <li class="<?= ($this->context->action->id === 'polls')? 'active': ''; ?>"><a href="<?= $this->context->contentContainer->createUrl('/user/profile/polls'); ?>"><?= Yii::t('base','Polls'); ?></a></li>
+                <li><a class="<?= ($this->context->action->id === 'favorite-polls')? 'active': ''; ?>" href="<?= $this->context->contentContainer->createUrl('/user/profile/favorite-polls'); ?>"><?= Yii::t('base','Favorite'); ?> <?= Yii::t('base','polls'); ?></a></li>
             </ul>
 <?php
 

@@ -18,13 +18,13 @@ $animation = $model->hasErrors() ? 'shake' : 'fadeIn';
 
             <?= SpaceNameColorInput::widget(['form' => $form, 'model' => $model]) ?>
 
-            <?= $form->field($model, 'description')->textarea(['placeholder' => Yii::t('SpaceModule.views_create_create', 'space description'), 'rows' => '3']); ?>
+            <?= $form->field($model, 'description')->textarea(['placeholder' => Yii::t('base', 'group') . ' ' . Yii::t('base','description'), 'rows' => '3']); ?>
 
 	        <?= $form->field( $model, 'category', [
 		        'options' => [
 			        'class' => 'sm-item form-item field-blog-category',
 		        ]
-	        ] )->dropDownList( $category , ['class' => false]); ?>
+	        ] )->dropDownList( $category , ['class' => false])->label(Yii::t('base','Category')); ?>
 
             <a data-toggle="collapse" id="access-settings-link" href="#collapse-access-settings" style="font-size: 11px;">
                 <i class="fa fa-caret-right"></i> <?php echo Yii::t('SpaceModule.views_create_create', 'Advanced access settings'); ?>

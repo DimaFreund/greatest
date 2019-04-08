@@ -20,30 +20,26 @@ $this->registerJsConfig('content.form', [
 <div class="page-content">
     <div class="content-wrap">
         <div class="create-blog create-poll">
-            <h2>Create poll</h2>
+            <h2><?= Yii::t('base','Create poll'); ?></h2>
 
-        <?php
-        if(isset($errors) && !empty($error)) {
-	        foreach ( $errors as $error ) { ?>
-                <div class="alert alert-danger" role="alert">
-			        <?= $error[0]; ?>
-                </div>
-	        <?php }
-        } ?>
-		<?= Html::beginForm($submitUrl, 'POST'); ?>
+            <?php $form = \yii\widgets\ActiveForm::begin(['action' => $submitUrl, 'method' => 'POST', 'enableClientValidation' => true]); ?>
 
-		<?= \humhub\widgets\RichtextField::widget([
-			'name' => 'question',
-			'placeholder' => Yii::t('PollsModule.widgets_views_pollForm', "Ask something..."),
-            'id' => 'pollForm_message',
-		]); ?>
+            <?= $form->field($model, 'question')->textarea([
+                    'id' => 'pollForm_message',
+                    'placeholder' => Yii::t('PollsModule.widgets_views_pollForm', "Ask something..."),
 
-            <script>
-                $(document).ready(function() {
-                    $("#pollForm_message").emojioneArea({
-                    });
-                });
-            </script>
+            ])->label(false); ?>
+
+	        <?php
+	        if(isset($model) && !empty($model)) {
+		        $errors = $model->getErrors();
+		        unset($errors['question']);
+		        foreach ( $errors as $error ) { ?>
+                    <div class="alert alert-danger" role="alert">
+				        <?= $error[0]; ?>
+                    </div>
+		        <?php }
+	        } ?>
 
 		<div class="contentForm_options" data-content-component="polls.Poll">
 			<?= humhub\modules\polls\widgets\AddAnswerInput::widget(['name' => 'newAnswers[]', 'showTitle' => false]); ?>
@@ -76,10 +72,10 @@ $this->registerJsConfig('content.form', [
 
             <div class="form-group">
                 <div class="base-btn reverse">
-			        <?= Html::submitButton( 'Create' ) ?>
+			        <?= Html::submitButton( Yii::t('base','Create') ) ?>
                 </div>
             </div>
-		<?php echo Html::endForm(); ?>
+		<?php \yii\widgets\ActiveForm::end(); ?>
         </div>
 	</div>
 </div>

@@ -41,7 +41,7 @@ class AlbumsListEntryAdd extends Widget
         }
 
             return $this->render('albumsListEntryAdd', [
-                        'title' => Yii::t('GalleryModule.base', 'Click here to add new Gallery'),
+                        'title' => Yii::t('base', 'Click here to add new Gallery'),
                         'addActionUrl' => $contentContainer->createUrl('/gallery/custom-gallery/edit'),
                         'htmlOptions' => [
                             'data' => [

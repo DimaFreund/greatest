@@ -1,7 +1,8 @@
 <?php
 return array (
+  'Find user' => '',
   'Add recipients' => 'Agregar destinatarios',
   'Close' => 'Cerrar',
-  'New message' => 'Nuevo mensaje',
   'Send' => 'Enviar',
+  'New message' => 'Nuevo mensaje',
 );

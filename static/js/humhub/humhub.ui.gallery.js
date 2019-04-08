@@ -21,3 +21,12 @@ humhub.module('ui.gallery', function (module, require, $) {
         init: init
     });
 });
+
+
+
+$(document).mouseup(function (e){ // событие клика по веб-документу
+        var div = $('.albums-layout ul.context-menu'); // тут указываем ID элемента
+        if (!div.is(e.target)){ // если клик был не по нашему блоку
+           div.parents('.sub-context-menu').removeClass('active-context-menu');
+        }
+    });

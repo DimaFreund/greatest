@@ -16,18 +16,18 @@ Assets::register($this);
         <div class="activity-counter"><span id="badge-messages" ></span></div>
     </div>
 
-    <div class="tooltip-base">Messages</div>
+    <div class="tooltip-base"><?= Yii::t('base', 'Messages'); ?></div>
     <div class="activity-sub-menu">
         <div class="messages-sub-menu">
             <div class="sub-menu-header">
-                <div class="title">Messages</div>
+                <div class="title"><?= Yii::t('base', 'Messages'); ?></div>
             </div>
             <div class="sub-menu-content">
                 <ul id="dropdown-messages" class="dialogList">
 
                 </ul>
             </div>
-            <div class="sub-menu-footer"><a class="mailBox" href="<?= Url::toRoute(['/mail/mail']) ?>">View in the Mailbox</a></div>
+            <div class="sub-menu-footer"><a class="mailBox" href="<?= Url::toRoute(['/mail/mail']) ?>"><?= Yii::t('base','View in the Mailbox'); ?></a></div>
         </div>
     </div>
 </div>

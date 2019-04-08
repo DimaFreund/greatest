@@ -78,7 +78,7 @@ class Space extends ContentContainerActiveRecord implements \humhub\modules\sear
 
 	public static function objectName()
 	{
-		return 'space'; //TODO translate;
+		return Yii::t('base','space');
 	}
 
     /**
@@ -89,6 +89,8 @@ class Space extends ContentContainerActiveRecord implements \humhub\modules\sear
         $rules = [
             [['join_policy', 'visibility', 'status', 'auto_add_new_members', 'default_content_visibility', 'category'], 'integer'],
             [['name'], 'required'],
+	        ['name', 'string', 'min' => 3, 'max' => 64],
+	        ['description', 'string', 'max' => '1024'],
             [['description', 'tags', 'color'], 'string'],
             [['join_policy'], 'in', 'range' => [0, 1, 2]],
             [['visibility'], 'in', 'range' => [0, 1, 2]],
@@ -645,11 +647,11 @@ class Space extends ContentContainerActiveRecord implements \humhub\modules\sear
 
 	public static function getSortParameters() {
 		return $sortParameters = [
-			'descdate' => 'Newest first',
-			'ascdate'  => 'Old first',
-			'like'     => 'Most Like',
-			'favorite' => 'Most Favorite',
-			'members'  => 'Members',
+			'descdate' => Yii::t('base','Newest first'),
+			'ascdate'  => Yii::t('base','Old first'),
+			'like'     => Yii::t('base','Most Like'),
+			'favorite' => Yii::t('base','Most Favorite'),
+			'members'  => Yii::t('base','Members'),
 		];
 	}
 

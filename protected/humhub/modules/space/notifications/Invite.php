@@ -64,7 +64,7 @@ class Invite extends BaseNotification
      */
     public function html()
     {
-        return Yii::t('SpaceModule.notification', '{displayName} invited you to the space {spaceName}', array(
+        return Yii::t('SpaceModule.notification', '{displayName} invited you to the group {spaceName}', array(
                     '{displayName}' => Html::tag('strong', Html::encode($this->originator->displayName)),
                     '{spaceName}' => Html::tag('strong', Html::encode($this->getSpace()->name))
         ));

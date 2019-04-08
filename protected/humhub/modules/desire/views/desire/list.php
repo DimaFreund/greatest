@@ -5,14 +5,14 @@
     <div class="content-wrap grey">
         <div class="desires-page">
             <div class="desires-page-header">
-                <div class="title">Desires</div>
-                <div class="stat"><?= $count; ?> desires</div>
-                <div class="map-btn"><svg class="icon icon-location"><use xlink:href="./svg/sprite/sprite.svg#location"></use></svg>view on map</div>
+                <div class="title"><?= Yii::t('base','Desires'); ?></div>
+                <div class="stat"><?= $count; ?> <?= Yii::t('base','desires'); ?></div>
+                <div class="map-btn"><svg class="icon icon-location"><use xlink:href="./svg/sprite/sprite.svg#location"></use></svg><?= Yii::t('base','view on map'); ?></div>
                 <div class="map-block"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d81217.46868235002!2d30.48229395!3d50.49610355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1526995954734" width="600" height="350" frameborder="0"
                                                style="border:0" allowfullscreen></iframe></div>
             </div>
             <div class="desire-page-filter">
-                <div class="filter-title">TOP reated</div>
+                <div class="filter-title"><?= Yii::t('base','TOP rated'); ?></div>
                 <?= \humhub\modules\content\widgets\PageSortFilter::widget(['models' => $articles]); ?>
             </div>
             <div class="all-desires desire-small-layout" id="list-object">

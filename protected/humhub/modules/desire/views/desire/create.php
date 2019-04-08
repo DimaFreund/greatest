@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 <div class="page-content">
     <div class="content-wrap">
         <div class="create-blog create-desire">
-            <h2>Write your <?php if($model->greatest) echo 'Greatest'; ?> Desire</h2>
+            <h2><?= Yii::t('base','Write your'); ?> <?php if($model->greatest) echo Yii::t('base','Greatest'); ?> <?= Yii::t('base','Desire'); ?></h2>
 			<?php $form = ActiveForm::begin(); ?>
 
 			<?= $form->field( $model, 'title', [ 'options' => [ 'class' => 'form-group form-item' ] ] )->textInput( [ 'maxlength' => true ] ) ?>
@@ -65,7 +65,7 @@ use yii\widgets\ActiveForm;
 
             </div>
             <div class="form-group base-btn reverse">
-		        <?= Html::submitButton( $model->isNewRecord ? 'Create' : 'Update', [ 'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary' ] ) ?>
+		        <?= Html::submitButton( $model->isNewRecord ? Yii::t('base','Create') : 'Update', [ 'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary' ] ) ?>
             </div>
 			<?php ActiveForm::end(); ?>
         </div>

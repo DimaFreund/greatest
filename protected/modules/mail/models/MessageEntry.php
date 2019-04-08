@@ -55,6 +55,7 @@ class MessageEntry extends ActiveRecord
             array(['message_id', 'user_id'], 'required'),
             array(['message_id', 'user_id', 'file_id', 'created_by', 'updated_by'], 'integer'),
             array(['created_at', 'updated_at', 'content'], 'safe'),
+	        array(['content'], 'string', 'max' => 64000)
         );
     }
 

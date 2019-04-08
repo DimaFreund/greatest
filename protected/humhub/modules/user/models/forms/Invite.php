@@ -32,6 +32,7 @@ class Invite extends Model
     {
         return [
             [['emails'], 'required'],
+	        ['emails', 'string', 'max' => 500],
             ['emails', 'checkEmails']
         ];
     }
@@ -46,18 +47,24 @@ class Invite extends Model
     public function checkEmails($attribute, $params)
     {
         if ($this->$attribute != "") {
-            foreach ($this->getEmails() as $email) {
-                $validator = new \yii\validators\EmailValidator();
-                if (!$validator->validate($email)) {
-                    $this->addError($attribute, Yii::t('UserModule.invite', '{email} is not valid!', array("{email}" => $email)));
-                    continue;
-                }
+        	$emails = $this->getEmails();
+        	$validator = new \yii\validators\EmailValidator();
+        	if(count($emails) > 50) {
+        		$this->addError($attribute, Yii::t('UserModule.invite', 'You can not send more than 50 invite!'));
+	        } else {
+		        foreach ( $emails as $email ) {
 
-                if (User::findOne(['email' => $email]) != null) {
-                    $this->addError($attribute, Yii::t('UserModule.invite', '{email} is already registered!', array("{email}" => $email)));
-                    continue;
-                }
-            }
+			        if ( ! $validator->validate( $email ) ) {
+				        $this->addError( $attribute, Yii::t( 'UserModule.invite', '{email} is not valid!', array( "{email}" => $email ) ) );
+				        continue;
+			        }
+
+			        if ( User::findOne( [ 'email' => $email ] ) != null ) {
+				        $this->addError( $attribute, Yii::t( 'UserModule.invite', '{email} is already registered!', array( "{email}" => $email ) ) );
+				        continue;
+			        }
+		        }
+	        }
         }
     }
 
